@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classificado Vintage Riders — Motos clássicas e antigas à venda</title>
+<meta name="description" content="O maior classificado de motos clássicas e antigas do Brasil. Honda, Yamaha, Suzuki, Harley, Ducati e muito mais, com fotos e contato direto.">
+<meta name="theme-color" content="#14110e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="Classificado Vintage Riders">
+      <span class="logo-selo">Classi<br>ficado</span>
+      <span class="logo-txt">Vintage Riders<small>Classificado</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#anuncios">Anúncios</a>
+      <a href="#sobre">Sobre</a>
+      <a class="btn zap peq" id="zap-topo" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>O maior classificado de<br><em>motos clássicas</em> do Brasil</h1>
+    <p>Motos antigas, café racers, trail e esportivas de coleção. Veja fotos, preços e fale direto com o vendedor.</p>
+    <form class="busca" id="form-busca" role="search">
+      <input id="q" type="search" placeholder="Busque por marca, modelo ou cidade…" aria-label="Buscar anúncios" autocomplete="off">
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+  </div>
+</section>
+
+<main class="wrap" id="anuncios">
+  <div class="filtros">
+    <div class="chips" id="chips" aria-label="Marcas"></div>
+    <div class="linha-filtros">
+      <select id="f-cidade" aria-label="Estado"><option value="">Todos os estados</option></select>
+      <select id="f-preco" aria-label="Preço máximo">
+        <option value="">Qualquer preço</option>
+        <option value="20000">Até R$ 20 mil</option>
+        <option value="30000">Até R$ 30 mil</option>
+        <option value="50000">Até R$ 50 mil</option>
+        <option value="80000">Até R$ 80 mil</option>
+        <option value="999999999">Acima de R$ 80 mil</option>
+      </select>
+      <select id="f-ano" aria-label="Época">
+        <option value="">Qualquer ano</option>
+        <option value="1979">Até 1979</option>
+        <option value="1989">Anos 80</option>
+        <option value="1999">Anos 90</option>
+        <option value="2000">2000 ou mais</option>
+      </select>
+      <select id="f-ordem" aria-label="Ordenar">
+        <option value="recentes">Mais recentes</option>
+        <option value="menor">Menor preço</option>
+        <option value="maior">Maior preço</option>
+        <option value="antigas">Mais antigas</option>
+      </select>
+    </div>
+  </div>
+  <div class="resumo"><span id="contagem">Carregando…</span><button class="chip" id="limpar" hidden>Limpar filtros</button></div>
+  <div class="grade" id="grade">
+    <div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div>
+  </div>
+</main>
+
+<section id="sobre" class="rodape">
+  <div class="wrap">
+    <strong>Classificado Vintage Riders</strong>
+    <span>Rodovia Doutor Cássio de Freitas Levy, 1820 — Jardim Vanessa, Limeira/SP · Seg a sex, 9h às 18h</span>
+    <span>Os veículos são de responsabilidade do anunciante. O Vintage Riders faz a ligação entre vendedor e comprador.</span>
+    <span><a href="#" id="ig-link" target="_blank" rel="noopener">Instagram @classificadovintageriders</a> · <a href="admin/">Área do anunciante</a></span>
+    <span style="opacity:.6">Protótipo de demonstração. Anúncios e fotos pertencem aos respectivos anunciantes.</span>
+  </div>
+</section>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

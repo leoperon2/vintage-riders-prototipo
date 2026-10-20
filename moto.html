@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moto — Classificado Vintage Riders</title>
+<meta name="theme-color" content="#14110e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="./">
+      <span class="logo-selo">Classi<br>ficado</span>
+      <span class="logo-txt">Vintage Riders<small>Classificado</small></span>
+    </a>
+    <nav class="nav"><a class="btn sec peq" href="./">Ver todas as motos</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <a class="voltar" href="./#anuncios">← Voltar aos anúncios</a>
+  <div id="conteudo"><div class="esqueleto" style="margin-top:24px;aspect-ratio:16/8"></div></div>
+</main>
+
+<div class="lightbox" id="lb" role="dialog" aria-label="Foto ampliada">
+  <button class="lb-x" aria-label="Fechar">✕</button>
+  <button class="lb-p" aria-label="Anterior">‹</button>
+  <img id="lb-img" alt="">
+  <button class="lb-n" aria-label="Próxima">›</button>
+</div>
+
+<footer class="rodape">
+  <div class="wrap">
+    <span>Os veículos são de responsabilidade do anunciante. O Vintage Riders faz a ligação entre vendedor e comprador.</span>
+    <span style="opacity:.6">Protótipo de demonstração. Anúncios e fotos pertencem aos respectivos anunciantes.</span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/moto.js"></script>
+</body>
+</html>

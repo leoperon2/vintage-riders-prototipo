@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel — Classificado Vintage Riders</title>
+<meta name="theme-color" content="#14110e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="../">
+      <span class="logo-selo">Classi<br>ficado</span>
+      <span class="logo-txt">Painel<small>Vintage Riders</small></span>
+    </a>
+    <nav class="nav">
+      <a href="../" target="_blank">Ver site</a>
+      <button class="btn sec peq oculto-js" id="sair">Sair</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap admin-corpo">
+  <!-- login -->
+  <form class="login" id="form-login">
+    <h1>Entrar</h1>
+    <div><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required></div>
+    <div><label for="senha">Senha</label><input id="senha" type="password" autocomplete="current-password" required></div>
+    <div class="msg erro oculto-js" id="login-erro"></div>
+    <button class="btn" type="submit">Entrar</button>
+  </form>
+
+  <!-- painel -->
+  <section id="painel" class="oculto-js">
+    <div class="barra">
+      <input id="filtro" type="search" placeholder="Buscar nos meus anúncios…">
+      <button class="btn" id="novo">+ Novo anúncio</button>
+    </div>
+
+    <form class="form oculto-js" id="form-anuncio">
+      <h2 id="form-titulo">Novo anúncio</h2>
+      <details>
+        <summary style="cursor:pointer;color:var(--suave)">Colar legenda do Instagram (preenche os campos sozinho)</summary>
+        <textarea id="legenda" placeholder="Marca: Honda&#10;Modelo: CB 500&#10;Ano: 1998&#10;Km: 24.700&#10;Valor: R$ 33.000,00&#10;Contato: (19) 9 8128-1806&#10;Cidade: Londrina-PR&#10;Obs: …"></textarea>
+        <button type="button" class="btn sec peq" id="preencher" style="margin-top:8px">Preencher campos</button>
+      </details>
+      <div class="grid2">
+        <div><label>Marca *</label><input id="marca" required></div>
+        <div><label>Modelo *</label><input id="modelo" required></div>
+        <div><label>Ano</label><input id="ano" placeholder="ex.: 1998 ou 1987/1988"></div>
+        <div><label>Quilometragem</label><input id="km" placeholder="ex.: 24.700"></div>
+        <div><label>Valor (R$)</label><input id="valor" inputmode="numeric" placeholder="ex.: 33000"></div>
+        <div><label>Cidade-UF</label><input id="cidade" placeholder="ex.: Londrina-PR"></div>
+        <div><label>Contato (WhatsApp)</label><input id="contato" inputmode="tel" placeholder="(19) 9 8128-1806"></div>
+        <div><label>Situação</label><select id="status"><option value="ativo">Visível no site</option><option value="oculto">Oculto</option></select></div>
+      </div>
+      <div><label>Observações</label><textarea id="obs" placeholder="Uma informação por linha"></textarea></div>
+      <div>
+        <label>Fotos (a primeira é a capa)</label>
+        <input id="arquivos" type="file" accept="image/*" multiple>
+        <div class="fotos-edit" id="fotos-edit" style="margin-top:10px"></div>
+      </div>
+      <div class="msg erro oculto-js" id="form-erro"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" type="submit" id="salvar">Salvar anúncio</button>
+        <button class="btn sec" type="button" id="cancelar">Cancelar</button>
+      </div>
+    </form>
+
+    <div class="resumo"><span id="contagem"></span></div>
+    <div class="lista" id="lista"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
