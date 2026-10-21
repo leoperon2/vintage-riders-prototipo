@@ -274,3 +274,103 @@ pre.cod { margin: 6px 0 12px; padding: 12px 14px; border-radius: 10px; backgroun
 .fluxo .etapa span { font-size: 14px; color: var(--obs); line-height: 1.3; }
 .fluxo .seta { color: var(--marca-2); justify-self: center; transform: rotate(90deg); }
 @media (min-width: 820px) { .fluxo .seta { transform: none; } }
+
+/* ====== Proposta visual (.pp) ====== */
+body:has(.pp) .zap-flutuante { display: none; }
+.pp-hero { position: relative; color: #fff; background-size: cover; background-position: center; border-bottom: 1px solid var(--linha); padding: 34px 0 26px; }
+@media (min-width: 900px) { .pp-hero { padding: 64px 0 48px; } }
+.pp-hero h1 { margin: 8px 0 6px; font: 600 clamp(34px, 8vw, 66px)/1.02 "Oswald", sans-serif; text-transform: uppercase; max-width: 760px; text-wrap: balance; }
+.pp-hero h1 em { font-style: normal; color: #ff7a5c; }
+.pp-hero p { margin: 0 0 16px; font-size: clamp(16px, 2.6vw, 20px); color: #ece2cd; max-width: 560px; }
+.pp-tag { display: inline-block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--marca-2); }
+.pp-hero .pp-tag { color: #ff9a82; }
+.pp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 18px; max-width: 560px; }
+.pp-stats .numero { text-align: left; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 12px; padding: 10px 12px; backdrop-filter: blur(4px); }
+.pp-stats .numero b { font-size: clamp(22px, 5vw, 32px); color: #ff8a6b; }
+.pp-stats .numero span { color: #e6dcc7; font-size: 12px; }
+
+.pp-grade3 { display: grid; gap: 12px; }
+@media (min-width: 760px) { .pp-grade3 { grid-template-columns: repeat(3, 1fr); } }
+.pp-card { background: var(--card); border: 1px solid var(--linha); border-radius: var(--raio); padding: 18px; display: grid; gap: 6px; align-content: start; }
+.pp-card h3 { margin: 4px 0 0; font: 600 19px "Oswald", sans-serif; text-transform: uppercase; }
+.pp-card p { margin: 0; color: var(--obs); font-size: 15px; }
+.pp-ico { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--marca) 16%, transparent); color: var(--marca-2); }
+.pp-ico.ruim { background: var(--erro-bg); color: var(--erro-tx); }
+
+/* molduras de celular */
+.pp-telas { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 14px 22px; margin-inline: -14px; scrollbar-width: thin; }
+@media (min-width: 1100px) { .pp-telas { justify-content: center; overflow: visible; } }
+.fone-fig { margin: 0; flex: none; scroll-snap-align: center; text-align: center; }
+.fone-fig figcaption { margin-top: 10px; font-size: 13.5px; color: var(--suave); max-width: 220px; margin-inline: auto; }
+.fone { position: relative; width: min(60vw, 224px); aspect-ratio: 390 / 844; border-radius: 30px; padding: 7px; background: linear-gradient(145deg, #34343a, #0b0b0d); box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45), inset 0 0 0 1.5px #44444b; }
+.fone::before { content: ""; position: absolute; top: 13px; left: 50%; width: 30%; height: 12px; transform: translateX(-50%); background: #000; border-radius: 10px; z-index: 2; opacity: 0.9; }
+.fone img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; display: block; }
+:root[data-tema="claro"] .fone { box-shadow: 0 18px 40px rgba(60, 40, 20, 0.28), inset 0 0 0 1.5px #44444b; }
+.pp-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 4px; }
+.pp-chips span { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--linha); background: var(--card); font-size: 13.5px; font-weight: 500; }
+
+/* fluxo da automação */
+.pp-fluxo { display: grid; gap: 0; justify-items: center; }
+.pp-passo { text-align: center; display: grid; gap: 4px; justify-items: center; max-width: 210px; }
+.pp-passo b { font: 600 18px "Oswald", sans-serif; text-transform: uppercase; }
+.pp-passo small { color: var(--suave); font-size: 13.5px; }
+.pp-passo .pp-ico { width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--marca-2); background: var(--card); }
+.pp-lig { width: 2px; height: 26px; margin: 4px 0; background: repeating-linear-gradient(var(--marca-2) 0 5px, transparent 5px 9px); }
+@media (min-width: 860px) {
+  .pp-fluxo { grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: start; }
+  .pp-lig { width: 100%; min-width: 40px; height: 2px; margin: 34px 0 0; background: repeating-linear-gradient(90deg, var(--marca-2) 0 6px, transparent 6px 11px); }
+}
+.pp-nota { margin: 16px auto 0; max-width: 640px; text-align: center; padding: 12px 16px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--linha); color: var(--obs); font-size: 14.5px; }
+
+/* antes e depois */
+.pp-troca { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pp-troca li { display: grid; background: var(--card); border: 1px solid var(--linha); border-radius: 12px; overflow: hidden; }
+@media (min-width: 760px) { .pp-troca li { grid-template-columns: 1fr 1fr; } }
+.pp-troca span { display: flex; gap: 10px; align-items: center; padding: 12px 14px; font-size: 15px; }
+.pp-troca .antes { color: var(--suave); background: color-mix(in srgb, var(--erro-bg) 55%, transparent); }
+.pp-troca .antes svg { color: var(--erro-tx); flex: none; }
+.pp-troca .depois { font-weight: 600; }
+.pp-troca .depois svg { color: #2e9b5a; flex: none; }
+
+/* número grande */
+.pp-grande { text-align: center; display: grid; gap: 0; padding: 6px 0 2px; }
+.pp-grande b { font: 600 clamp(72px, 22vw, 150px)/0.95 "Oswald", sans-serif; background: linear-gradient(180deg, var(--marca-2), var(--marca)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pp-grande span { font: 600 clamp(16px, 3.6vw, 24px) "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 0.06em; }
+.pp-centro { text-align: center; color: var(--suave); margin: 6px 0 16px; }
+
+/* plano B */
+.pp-duas { display: grid; gap: 22px; align-items: center; }
+@media (min-width: 860px) { .pp-duas { grid-template-columns: auto 1fr; gap: 54px; } }
+.destaque-fone { justify-self: center; }
+.pp-texto h2 { margin: 4px 0 6px; font: 600 clamp(26px, 5vw, 38px)/1.05 "Oswald", sans-serif; text-transform: uppercase; }
+.pp-texto > p { margin: 0 0 12px; color: var(--obs); }
+.pp-botoes { display: grid; gap: 10px; margin-bottom: 12px; }
+@media (min-width: 560px) { .pp-botoes { grid-template-columns: 1fr 1fr; } }
+.pp-lista { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 6px; }
+.pp-lista li, .pp-incl li { display: flex; gap: 10px; align-items: flex-start; color: var(--obs); }
+.pp-lista svg, .pp-incl svg { color: #2e9b5a; flex: none; margin-top: 1px; }
+
+.pp-incl { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+@media (min-width: 700px) { .pp-incl { grid-template-columns: 1fr 1fr; gap: 10px 28px; } }
+.pp-incl li { background: var(--card); border: 1px solid var(--linha); border-radius: 12px; padding: 12px 14px; font-size: 15px; }
+
+/* linha do tempo */
+.pp-linha { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; position: relative; }
+.pp-linha li { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: center; position: relative; }
+.pp-linha li b { grid-row: span 2; width: 44px; height: 44px; border-radius: 50%; background: var(--card); border: 2px solid var(--linha); display: grid; place-items: center; font: 600 18px "Oswald", sans-serif; }
+.pp-linha li.feito b { background: var(--marca); border-color: var(--marca); color: #fff; }
+.pp-linha li span { font-weight: 600; }
+.pp-linha li small { color: var(--suave); font-size: 13.5px; }
+@media (min-width: 800px) {
+  .pp-linha { grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .pp-linha li { grid-template-columns: 1fr; justify-items: center; text-align: center; row-gap: 6px; padding: 0 8px; }
+  .pp-linha li b { grid-row: auto; }
+  .pp-linha li:not(:last-child)::after { content: ""; position: absolute; top: 22px; left: calc(50% + 30px); right: calc(-50% + 30px); height: 2px; background: repeating-linear-gradient(90deg, var(--linha) 0 6px, transparent 6px 11px); }
+}
+
+/* barra de contato fixa (celular) */
+.pp-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--topo-bg); backdrop-filter: blur(10px); border-top: 1px solid var(--linha); transform: translateY(110%); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.pp-barra.on { transform: none; }
+.pp-barra .btn { width: 100%; max-width: 460px; display: flex; margin: 0 auto; min-height: 48px; }
+@media (min-width: 900px) { .pp-barra { display: none; } }
+.pp + .rodape, body:has(.pp) .rodape { padding-bottom: 80px; }

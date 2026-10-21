@@ -12,6 +12,7 @@
     ".hero-foto .wrap > *", ".diferenciais .dif", ".sec-topo", ".numero", ".servico", ".marcas",
     ".texto", ".video-lite", ".faixa-cta", ".bloco", ".contato-grade > *", "details.faq",
     ".pagina-topo .wrap > *", ".detalhe > *", ".card", ".passos li", ".rodape-grade > *",
+    ".pp-hero .wrap > *", ".pp-card", ".fone-fig", ".pp-passo", ".pp-troca li", ".pp-grande", ".pp-incl li", ".pp-linha li", ".pp-texto > *",
   ].join(",");
   const IMGS = ".duas > img";
 

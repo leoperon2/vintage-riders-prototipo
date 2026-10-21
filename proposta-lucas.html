@@ -13,163 +13,160 @@
 <meta property="og:image" content="img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=10"></script>
+<script src="js/tema.js?v=11"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=10">
-<link rel="stylesheet" href="css/site.css?v=10">
+<link rel="stylesheet" href="css/estilo.css?v=11">
+<link rel="stylesheet" href="css/site.css?v=11">
 
 </head>
 <body>
 <div id="topo"></div>
 
-<header class="pagina-topo">
+<div class="pp">
+<section class="pp-hero" style="background-image:linear-gradient(0deg,rgba(10,8,6,.92),rgba(10,8,6,.45)),url(img/site/hero-2.webp)">
   <div class="wrap">
-    <span class="eyebrow" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--marca-2);font-weight:600">Proposta para o Lucas</span>
-    <h1>Um site à altura do que o Instagram já mostra</h1>
-    <p>O protótipo que você viu é só o começo. Aqui está o que ele faz, como funciona por dentro e como seria tê-lo como seu, sem pagar mensalidade pelo sistema.</p>
-    <div class="no-print-barra"><a class="btn" href="index.html" target="_blank" rel="noopener">Abrir o protótipo</a><a class="btn sec" href="#conversa">Falar com o Léo</a></div>
+    <span class="pp-tag">Proposta para o Lucas</span>
+    <h1>Um site à altura do <em>Instagram</em></h1>
+    <p>Anúncios que se atualizam sozinhos. Sem mensalidade pelo sistema.</p>
+    <div class="pp-stats">
+      <div class="numero"><b>271 mil</b><span>seguidores</span></div>
+      <div class="numero"><b>+3 mil</b><span>motos vendidas</span></div>
+      <div class="numero"><b>2 mi</b><span>impressões por mês</span></div>
+    </div>
+    <div class="hero-ctas"><a class="btn" href="index.html" target="_blank" rel="noopener">Ver o protótipo</a><a class="btn vidro" href="#proximos">Próximos passos</a></div>
   </div>
-</header>
-<main class="wrap conteudo">
+</section>
 
-  <section class="bloco">
-    <h2>1. De onde partimos</h2>
-    <p>O Vintage Riders construiu algo raro: um classificado com público próprio, mais de 3 mil motos vendidas e cerca de 2 milhões de impressões por mês no Instagram. A marca é forte e o canal funciona.</p>
-    <p>O que encontrei no site atual foi uma <strong>biblioteca</strong>, enquanto as vendas acontecem no Instagram e no WhatsApp. Isso gera três atritos no dia a dia:</p>
-    <ul>
-      <li>Cada moto é <strong>cadastrada duas vezes</strong>: no Instagram e de novo no site.</li>
-      <li>O site <strong>não diferencia</strong> o que está à venda do que já foi vendido: todos os produtos aparecem como "esgotado".</li>
-      <li>O caminho até o WhatsApp não é direto: o botão de compra fica desativado, e o visitante precisa procurar o contato.</li>
-    </ul>
-  </section>
-
-  <section class="bloco">
-    <h2>2. O que já está pronto</h2>
-    <p>Não é uma ideia: é um site funcionando, com os anúncios reais do Instagram dentro. Abra pelo celular, que é como a maior parte do público acessa.</p>
-    <ul class="grid-checks">
-      <li>Catálogo com <strong>37 motos à venda</strong> (vindas do Instagram) e <strong>1.198 no acervo</strong> do site antigo</li>
-      <li>Busca e filtros por marca, estado, preço e época</li>
-      <li>Página de cada moto com galeria de fotos e <strong>botão de WhatsApp com mensagem pronta</strong></li>
-      <li>Páginas de serviços (anúncio, intermediação, assessoria 360º e frete), com simulador do custo de anunciar</li>
-      <li>Sobre, showroom, contato e dúvidas frequentes</li>
-      <li>Modo claro e escuro, animações suaves e visual pensado primeiro para o celular</li>
-      <li><strong>Painel próprio</strong>: criar, editar, ocultar, marcar como vendida e excluir anúncios, com fotos enviadas do celular</li>
-      <li>Colar a legenda do Instagram e o formulário se preenche sozinho</li>
-    </ul>
-    <p class="no-print-barra"><a class="btn" href="index.html" target="_blank" rel="noopener">Ver o site</a><a class="btn sec" href="motos.html" target="_blank" rel="noopener">Ver o catálogo</a><a class="btn sec" href="servicos.html" target="_blank" rel="noopener">Ver os serviços</a></p>
-    <p class="aviso">O acesso ao painel de demonstração eu envio por mensagem, para você testar cadastrando uma moto de verdade.</p>
-  </section>
-
-  <section class="bloco" id="automacao">
-    <h2>3. Automação dos anúncios</h2>
-    <p>A ideia é simples: <strong>você continua postando no Instagram do jeito que já faz</strong>, e o site se atualiza sozinho. Nada de digitar a mesma moto duas vezes.</p>
-    <div class="fluxo" aria-label="Como funciona a automação">
-      <div class="etapa"><b>1</b><span>Você posta a moto no Instagram</span></div><svg class="seta" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <div class="etapa"><b>2</b><span>O sistema importa só os posts novos</span></div><svg class="seta" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <div class="etapa"><b>3</b><span>Marca, modelo, ano, valor e fotos viram um anúncio</span></div><svg class="seta" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <div class="etapa"><b>4</b><span>O anúncio aparece no site</span></div>
+<section class="secao">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>O que trava hoje</h2><p>No site atual, três atritos do dia a dia.</p></div></div>
+    <div class="pp-grade3">
+      <div class="pp-card"><span class="pp-ico ruim"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="12" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg></span><h3>Cadastro em dobro</h3><p>Cada moto é digitada no Instagram e de novo no site.</p></div>
+      <div class="pp-card"><span class="pp-ico ruim"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span><h3>Tudo “esgotado”</h3><p>Não dá para saber o que está à venda e o que já foi vendido.</p></div>
+      <div class="pp-card"><span class="pp-ico ruim"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span><h3>Botão sem ação</h3><p>O botão de compra fica desativado e o contato fica escondido.</p></div>
     </div>
-    <ul>
-      <li><strong>Só os novos:</strong> o que já está cadastrado não é duplicado, e o que você editou no painel não é sobrescrito.</li>
-      <li><strong>Você mantém o controle:</strong> pode ocultar, corrigir ou marcar como vendida pelo celular, em poucos toques.</li>
-      <li><strong>Fotos guardadas no site:</strong> as imagens são copiadas e otimizadas, então não somem quando o link do Instagram expira.</li>
-      <li>O padrão das suas legendas (Marca, Modelo, Ano, Km, Valor, Cidade) já é reconhecido pelo sistema.</li>
-    </ul>
-    <div class="destaque"><strong>Estado hoje:</strong> a base técnica já funciona (foi assim que os 37 anúncios entraram). O botão "Importar novos do Instagram" já existe no painel, e a ativação completa é uma das entregas da contratação. A forma exata de conexão com o Instagram é definida com você, conforme o acesso à conta.</div>
-  </section>
+  </div>
+</section>
 
-  <section class="bloco" id="sem-mensalidade">
-    <h2>4. O sistema é seu, sem mensalidade</h2>
-    <p>Hoje o site depende de uma plataforma de loja virtual alugada. A proposta é diferente: um <strong>pagamento único</strong> e o sistema passa a ser seu.</p>
-    <ul>
-      <li><strong>Sem mensalidade pelo sistema.</strong> Não existe licença nem assinatura mensal cobrada por mim.</li>
-      <li><strong>Sem aluguel de plataforma.</strong> Se você paga hoje uma mensalidade pela loja virtual, esse valor deixa de existir quando o novo site entrar no ar.</li>
-      <li><strong>Código e contas no seu nome.</strong> Na entrega, o código-fonte e os acessos são transferidos para você.</li>
-    </ul>
-    <p><strong>Transparência sobre custos.</strong> O protótipo roda em planos gratuitos. Na versão final, o site fica em uma hospedagem gratuita que permite uso comercial (ou em um plano simples, se você preferir). Os custos possíveis são sempre externos, e você os paga direto ao fornecedor, sem intermediário:</p>
-    <table class="t">
-      <tr><th>Item</th><th>Como funciona</th></tr>
-      <tr><td>Domínio (<code>classificadovintageriders.com.br</code>)</td><td>Renovação anual, que você já paga</td></tr>
-      <tr><td>Hospedagem do site</td><td>Gratuita em provedor que permite uso comercial; plano simples só se você quiser algo diferente</td></tr>
-      <tr><td>Banco de dados</td><td>Gratuito no início; plano pago (na casa de US$ 25 por mês) só se o volume crescer bastante</td></tr>
-      <tr><td>Conexão com o Instagram</td><td>A integração oficial é gratuita; serviços de coleta têm crédito gratuito mensal e custo baixo por uso</td></tr>
-    </table>
-  </section>
-
-  <section class="bloco" id="plano-b">
-    <h2>5. Plano B: você nunca fica na mão</h2>
-    <p>Uma dúvida honesta de quem contrata um profissional é: <em>"e se ele sumir?"</em>. Por isso criei uma página de continuidade dentro do próprio projeto, com um nome leve para um assunto sério.</p>
-    <div class="passos-duplos">
-      <div>
-        <h3>Botão "Léo sumiu"</h3>
-        <p>Se eu ficar incomunicável, você toca no botão e eu sou <strong>avisado automaticamente</strong>, na hora, por mensagem no celular e por e-mail, dizendo que você quer falar comigo.</p>
-      </div>
-      <div>
-        <h3>Botão "Tchau"</h3>
-        <p>Se preferir seguir com outra pessoa, sem rancor: um <strong>guia de passagem</strong> completo para o novo profissional assumir a manutenção, sem recomeçar do zero.</p>
-      </div>
+<section class="secao alt">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>O que já está pronto</h2><p>Telas reais do protótipo, abertas no celular.</p></div><a class="ver-todas" href="index.html" target="_blank" rel="noopener">Abrir o site →</a></div>
+    <div class="pp-telas">
+      <figure class="fone-fig"><div class="fone"><img src="img/proposta/home.webp" alt="Página inicial" width="540" height="1169" loading="lazy"></div><figcaption>Página inicial</figcaption></figure>
+      <figure class="fone-fig"><div class="fone"><img src="img/proposta/catalogo.webp" alt="Catálogo com busca e filtros" width="540" height="1169" loading="lazy"></div><figcaption>Catálogo com busca e filtros</figcaption></figure>
+      <figure class="fone-fig"><div class="fone"><img src="img/proposta/moto.webp" alt="Moto com galeria e WhatsApp" width="540" height="1169" loading="lazy"></div><figcaption>Moto com galeria e WhatsApp</figcaption></figure>
+      <figure class="fone-fig"><div class="fone"><img src="img/proposta/painel.webp" alt="Painel para você cadastrar" width="540" height="1169" loading="lazy"></div><figcaption>Painel para você cadastrar</figcaption></figure>
+      <figure class="fone-fig"><div class="fone"><img src="img/proposta/servicos.webp" alt="Serviços e simulador" width="540" height="1169" loading="lazy"></div><figcaption>Serviços e simulador</figcaption></figure>
     </div>
-    <ul>
-      <li><strong>Transparência total:</strong> a página explica o que acontece em cada clique, o que eu recebo e o que fica guardado.</li>
-      <li><strong>O site não cai</strong> se eu sumir: hospedagem e anúncios funcionam sozinhos.</li>
-      <li>O guia de passagem lista cada conta, cada pasta e cada passo, <strong>sem expor nenhuma senha</strong>.</li>
+    <div class="pp-chips"><span>37 motos à venda</span><span>1.198 no acervo</span><span>Modo claro e escuro</span><span>Feito para celular</span></div>
+  </div>
+</section>
+
+<section class="secao" id="automacao">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>Você só posta</h2><p>O site se atualiza sozinho. Nada de digitar a mesma moto duas vezes.</p></div></div>
+    <div class="pp-fluxo">
+      <div class="pp-passo"><span class="pp-ico"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span><b>Você posta</b><small>no Instagram, como já faz</small></div>
+      <div class="pp-lig"></div>
+      <div class="pp-passo"><span class="pp-ico"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></span><b>Importa só os novos</b><small>sem duplicar</small></div>
+      <div class="pp-lig"></div>
+      <div class="pp-passo"><span class="pp-ico"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><b>Vira anúncio</b><small>modelo, ano, valor e fotos</small></div>
+      <div class="pp-lig"></div>
+      <div class="pp-passo"><span class="pp-ico"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span><b>Está no site</b><small>você ajusta pelo celular</small></div>
+    </div>
+    <p class="pp-nota"><strong>Hoje:</strong> a base já funciona (foi assim que os 37 anúncios entraram) e o botão já existe no painel. A ativação completa é uma das entregas da contratação.</p>
+  </div>
+</section>
+
+<section class="secao alt">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>Hoje × novo site</h2></div></div>
+    <ul class="pp-troca">
+      <li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Cadastrar a moto duas vezes</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Postou no Instagram, o site se atualiza</span></li><li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Tudo aparece como “esgotado”</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>À venda, vendida, oculta ou acervo</span></li><li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Botão de compra desativado</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>WhatsApp direto, com mensagem pronta</span></li><li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Só menu por marca</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Busca e filtros: marca, estado, preço e época</span></li><li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Mensalidade da plataforma</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Sem mensalidade pelo sistema</span></li><li><span class="antes"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Sem plano se o profissional sumir</span><span class="depois"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Plano B com aviso automático</span></li>
     </ul>
-    <p class="no-print-barra"><a class="btn sec" href="leosumiu.html" target="_blank" rel="noopener">Ver a página Plano B</a><a class="btn sec" href="guia-profissional.html" target="_blank" rel="noopener">Ver o guia de passagem</a></p>
-  </section>
+  </div>
+</section>
 
-  <section class="bloco">
-    <h2>6. Hoje × com o novo site</h2>
-    <table class="t">
-      <tr><th>Ponto</th><th>Site atual</th><th>Novo site</th></tr>
-      <tr><td>Cadastro de anúncios</td><td>Duas vezes (Instagram e site)</td><td>Uma vez: o Instagram alimenta o site</td></tr>
-      <tr><td>Situação da moto</td><td>Tudo aparece como "esgotado"</td><td>À venda, vendida, oculta e acervo</td></tr>
-      <tr><td>Contato</td><td>Botão de compra desativado</td><td>WhatsApp direto, com mensagem pronta por moto</td></tr>
-      <tr><td>Busca</td><td>Menu por marca</td><td>Busca livre e filtros por marca, estado, preço e época</td></tr>
-      <tr><td>Peso da página</td><td>Vários scripts de terceiros</td><td>Leve, sem bibliotecas pesadas</td></tr>
-      <tr><td>Acabamento</td><td>"Trocas e devoluções" fora do ar, política em modelo e três endereços diferentes</td><td>Textos e endereço padronizados (a confirmar com você)</td></tr>
-      <tr><td>Custo recorrente do sistema</td><td>Mensalidade da plataforma</td><td>Nenhuma mensalidade pelo sistema</td></tr>
-      <tr><td>Se o profissional sumir</td><td>Sem plano definido</td><td>Plano B com aviso automático e guia de passagem</td></tr>
-    </table>
-  </section>
+<section class="secao" id="sem-mensalidade">
+  <div class="wrap">
+    <div class="pp-grande"><b>R$ 0</b><span>de mensalidade pelo sistema</span></div>
+    <p class="pp-centro">Pagamento único. O sistema passa a ser seu.</p>
+    <div class="pp-grade3">
+      <div class="pp-card"><span class="pp-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></span><h3>Código seu</h3><p>Todo o código-fonte é entregue.</p></div>
+      <div class="pp-card"><span class="pp-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></svg></span><h3>Contas no seu nome</h3><p>Hospedagem, banco e acessos transferidos.</p></div>
+      <div class="pp-card"><span class="pp-ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span><h3>Sem aluguel</h3><p>Se hoje você paga uma plataforma, esse valor deixa de existir.</p></div>
+    </div>
+    <details class="faq" style="margin-top:14px">
+      <summary>Quais custos de terceiros podem existir?</summary>
+      <div><strong>Sempre pagos direto ao fornecedor, sem intermediário:</strong><br>
+        Domínio: renovação anual, que você já paga.<br>
+        Hospedagem: gratuita em provedor que permite uso comercial.<br>
+        Banco de dados: gratuito no início; plano pago só se o volume crescer bastante.<br>
+        Instagram: a integração oficial é gratuita; serviços de coleta têm crédito gratuito e custo baixo por uso.</div>
+    </details>
+  </div>
+</section>
 
-  <section class="bloco">
-    <h2>7. O que está incluído</h2>
-    <ul class="grid-checks">
-      <li>Site e painel no ar, com o seu domínio</li>
-      <li>Ativação da automação de anúncios do Instagram</li>
-      <li>Migração dos textos, fotos e do acervo do site atual</li>
-      <li>Redirecionamentos para não perder o que já aparece no Google</li>
-      <li>Revisão de textos, endereço e política de privacidade</li>
-      <li>Treinamento rápido para você e sua equipe usarem o painel</li>
-      <li>Plano B de continuidade (aviso automático e guia de passagem)</li>
-      <li>Código-fonte e contas transferidos para o seu nome</li>
-    </ul>
-    <p class="aviso" style="margin-top:12px">Fora do escopo: funcionalidades novas de grande porte, gestão das redes sociais e custos de terceiros. Qualquer extra é combinado antes, por escrito.</p>
-  </section>
+<section class="secao alt" id="plano-b">
+  <div class="wrap pp-duas">
+    <div class="fone-fig destaque-fone"><div class="fone"><img src="img/proposta/planob.webp" alt="Página Plano B" width="540" height="1169" loading="lazy"></div></div>
+    <div class="pp-texto">
+      <span class="pp-tag">Plano B</span>
+      <h2>Você nunca fica na mão</h2>
+      <p>Uma página dentro do próprio projeto, com um nome leve para um assunto sério.</p>
+      <div class="pp-botoes">
+        <div class="pp-card"><h3>Léo sumiu</h3><p>Você toca e eu sou <strong>avisado automaticamente</strong>, por celular e e-mail.</p></div>
+        <div class="pp-card"><h3>Tchau</h3><p>Sem rancor: <strong>guia de passagem</strong> para outro profissional assumir.</p></div>
+      </div>
+      <ul class="pp-lista">
+        <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Transparência: a página diz o que acontece em cada clique</li>
+        <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>O site continua no ar mesmo se eu sumir</li>
+        <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>O guia não expõe nenhuma senha</li>
+      </ul>
+      <p class="no-print-barra"><a class="btn sec" href="leosumiu.html" target="_blank" rel="noopener">Ver a página</a><a class="btn sec" href="guia-profissional.html" target="_blank" rel="noopener">Ver o guia</a></p>
+    </div>
+  </div>
+</section>
 
-  <section class="bloco" id="conversa">
-    <h2>8. Próximos passos</h2>
-    <ol class="passos">
-      <li><span><strong>Você explora o protótipo</strong> e me diz o que mudaria.</span></li>
-      <li><span><strong>Conversamos</strong> sobre escopo, prazo e investimento.</span></li>
-      <li><span><strong>Fechamos</strong> e eu ativo a automação e preparo a migração.</span></li>
-      <li><span><strong>Entrega e treinamento</strong>, com o site já no seu domínio.</span></li>
+<section class="secao">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>O que está incluído</h2></div></div>
+    <ul class="pp-incl"><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Site e painel no ar, no seu domínio</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Automação dos anúncios do Instagram</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Migração de textos, fotos e acervo</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Redirecionamentos para não perder o Google</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Revisão de textos, endereço e política</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Treinamento rápido do painel</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Plano B de continuidade</li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Código e contas no seu nome</li></ul>
+    <p class="aviso" style="margin-top:10px">Fora do escopo: funcionalidades novas de grande porte, gestão das redes sociais e custos de terceiros. Qualquer extra é combinado antes, por escrito.</p>
+  </div>
+</section>
+
+<section class="secao alt" id="proximos">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>Próximos passos</h2></div></div>
+    <ol class="pp-linha">
+      <li class="feito"><b>1</b><span>Você explora o protótipo</span><small>você está aqui</small></li>
+      <li><b>2</b><span>Conversamos</span><small>escopo, prazo e investimento</small></li>
+      <li><b>3</b><span>Fechamos</span><small>ativo a automação e a migração</small></li>
+      <li><b>4</b><span>Entrega</span><small>no seu domínio, com treinamento</small></li>
     </ol>
-    <div class="faixa-cta" style="margin-top:14px">
-      <div><h2>Vamos conversar?</h2><p>Me chame no WhatsApp ou por e-mail. Resposta rápida, sem compromisso.</p></div>
+  </div>
+</section>
+
+<section class="secao" style="padding-top:0" id="conversa">
+  <div class="wrap">
+    <div class="faixa-cta">
+      <div><h2>Vamos conversar?</h2><p>Resposta rápida, sem compromisso.</p></div>
       <a class="btn" href="https://wa.me/5541999116261?text=Ol%C3%A1%2C%20L%C3%A9o!%20Vi%20a%20proposta%20do%20site%20e%20quero%20conversar." target="_blank" rel="noopener">Chamar o Léo no WhatsApp</a>
     </div>
-    <p style="margin-top:12px"><a href="mailto:leoperon@gmail.com">leoperon@gmail.com</a> · +55 41 99911-6261</p>
-  </section>
-</main>
+    <p class="pp-centro" style="margin-top:12px"><a href="mailto:leoperon@gmail.com">leoperon@gmail.com</a> · +55 41 99911-6261</p>
+  </div>
+</section>
+</div>
+<div class="pp-barra" id="pp-barra"><a class="btn zap" href="https://wa.me/5541999116261?text=Ol%C3%A1%2C%20L%C3%A9o!%20Vi%20a%20proposta%20do%20site%20e%20quero%20conversar." target="_blank" rel="noopener">Falar com o Léo no WhatsApp</a></div>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=10"></script>
-<script src="js/api.js?v=10"></script>
-<script src="js/layout.js?v=10"></script>
-
-<script src="js/motion.js?v=10"></script>
+<script src="js/config.js?v=11"></script>
+<script src="js/api.js?v=11"></script>
+<script src="js/layout.js?v=11"></script>
+<script>(function(){var b=document.getElementById("pp-barra");function f(){b.classList.toggle("on",scrollY>520)}addEventListener("scroll",f,{passive:true});f();})();</script>
+<script src="js/motion.js?v=11"></script>
 </body>
 </html>
