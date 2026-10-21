@@ -53,6 +53,7 @@
   function ir(i) {
     atual = (i + fotos.length) % fotos.length;
     img.src = lbImg.src = foto(fotos[atual]);
+    img.style.animation = "none"; void img.offsetWidth; img.style.animation = "";
     document.querySelectorAll("#mini button").forEach((b, k) => b.classList.toggle("on", k === atual));
     document.querySelector("#mini button.on")?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
   }

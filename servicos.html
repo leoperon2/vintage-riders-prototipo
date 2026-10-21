@@ -100,5 +100,6 @@ i.addEventListener('input',function(){var v=parseInt(i.value.replace(/\D/g,''),1
 if(!v){o.textContent='Informe o valor para simular';return;}
 var c=v*0.05,t=99+c;o.innerHTML='Custo total: '+f.format(t)+' <small>(R$ 99 + 5% = '+f.format(c)+')</small><br>Você recebe: '+f.format(v-t);});})();
 </script>
+<script src="js/motion.js"></script>
 </body>
 </html>

@@ -64,5 +64,6 @@ f.addEventListener('submit',function(e){e.preventDefault();window.open('https://
 document.getElementById('c-email').addEventListener('click',function(){if(!f.reportValidity())return;
 location.href='mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Contato pelo site')+'&body='+encodeURIComponent(texto());});})();
 </script>
+<script src="js/motion.js"></script>
 </body>
 </html>
