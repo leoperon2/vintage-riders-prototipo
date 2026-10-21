@@ -10,15 +10,15 @@
 <meta property="og:title" content="Guia de passagem do projeto — Vintage Riders">
 <meta property="og:description" content="Guia técnico para o profissional que vai assumir a manutenção do site do Classificado Vintage Riders.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/site/hero-1.webp">
+<meta property="og:image" content="https://leoperon2.github.io/vintage-riders-prototipo/img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=11"></script>
+<script src="js/tema.js?v=14"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=11">
-<link rel="stylesheet" href="css/site.css?v=11">
+<link rel="stylesheet" href="css/estilo.css?v=14">
+<link rel="stylesheet" href="css/site.css?v=14">
 
 </head>
 <body>
@@ -128,6 +128,7 @@ on conflict (chave) do update set valor = excluded.valor;
       <li>Confirmar quais motos do acervo estão vendidas.</li>
       <li>Trocar a senha do administrador provisório.</li>
       <li>Configurar o domínio definitivo e redirecionamentos do site antigo.</li>
+      <li>Ao trocar de domínio, atualizar o endereço absoluto da imagem de prévia (<code>og:image</code>) nos HTML.</li>
       <li>Avaliar plano pago do Supabase (o gratuito pode pausar por inatividade).</li>
       <li>Revisar os textos das dúvidas frequentes com o cliente.</li>
     </ul>
@@ -157,10 +158,10 @@ on conflict (chave) do update set valor = excluded.valor;
 </main>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=11"></script>
-<script src="js/api.js?v=11"></script>
-<script src="js/layout.js?v=11"></script>
+<script src="js/config.js?v=14"></script>
+<script src="js/api.js?v=14"></script>
+<script src="js/layout.js?v=14"></script>
 <script>(function(){var L=CONFIG.LEO,e=document.getElementById("g-contato");if(e&&!/exemplo/.test(L.EMAIL))e.textContent=L.NOME+" — "+L.WHATSAPP_TXT+" — "+L.EMAIL;})();</script>
-<script src="js/motion.js?v=11"></script>
+<script src="js/motion.js?v=14"></script>
 </body>
 </html>

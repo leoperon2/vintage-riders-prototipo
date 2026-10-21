@@ -43,7 +43,13 @@
         ${situacao}
         <dl class="specs">${spec("Ano", m.ano)}${spec("Quilometragem", m.km && m.km + " km")}${spec("Cidade", m.cidade)}${spec("Marca", m.marca)}</dl>
         ${botao}
-        ${m.fonte_url ? `<a class="btn sec" target="_blank" rel="noopener" href="${esc(m.fonte_url)}">Ver anúncio no Instagram</a>` : ""}
+        <div class="linha-btns">
+          <button class="btn sec" id="compartilhar" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+            Compartilhar
+          </button>
+          ${m.fonte_url ? `<a class="btn sec" target="_blank" rel="noopener" href="${esc(m.fonte_url)}">Ver no Instagram</a>` : ""}
+        </div>
         ${m.obs ? `<div><label>Observações do anunciante</label><div class="obs">${esc(m.obs)}</div></div>` : ""}
         <p class="aviso">Anúncio sob responsabilidade do anunciante. O Vintage Riders faz a ligação entre vendedor e comprador.</p>
       </aside>
@@ -67,6 +73,44 @@
     if (e.key === "Escape") lb.classList.remove("on");
     if (e.key === "ArrowLeft") ir(atual - 1);
     if (e.key === "ArrowRight") ir(atual + 1);
+  });
+
+  // ---------- compartilhar ----------
+  const link = `${location.origin}${location.pathname}?s=${encodeURIComponent(m.slug)}`;
+  const detalhe = [m.valor ? preco(m.valor) : null, m.cidade].filter(Boolean).join(" · ");
+  const texto = m.status === "vendido"
+    ? `${titulo}: moto já vendida no Classificado Vintage Riders.`
+    : `${titulo}${detalhe ? " — " + detalhe : ""}. Veja no Classificado Vintage Riders:`;
+  const dlg = $("dlg-compartilhar");
+  $("cp-nome").textContent = titulo;
+  $("cp-preco").textContent = [preco(m.valor), m.cidade].filter(Boolean).join(" · ");
+  $("cp-foto").src = foto(m.capa || fotos[0]);
+  $("cp-zap").href = `https://wa.me/?text=${encodeURIComponent(texto + "\n" + link)}`;
+  $("cp-tg").href = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(texto)}`;
+  $("cp-mail").href = `mailto:?subject=${encodeURIComponent(titulo + " — Vintage Riders")}&body=${encodeURIComponent(texto + "\n\n" + link)}`;
+
+  function aviso(txt) {
+    const t = document.createElement("div");
+    t.className = "toast"; t.textContent = txt; document.body.append(t);
+    setTimeout(() => t.remove(), 2400);
+  }
+  async function copiar() {
+    try { await navigator.clipboard.writeText(link); }
+    catch (e) {
+      const i = document.createElement("input"); i.value = link; document.body.append(i); i.select();
+      try { document.execCommand("copy"); } catch (_) {} i.remove();
+    }
+    aviso("Link copiado!");
+  }
+  $("cp-copiar").addEventListener("click", copiar);
+  dlg.addEventListener("click", (e) => { if (e.target.closest("[data-fechar]") || e.target === dlg) dlg.close(); });
+  $("compartilhar").addEventListener("click", async () => {
+    // celular: compartilhamento nativo; computador: janela com as opções
+    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+      try { await navigator.share({ title: titulo, text: texto, url: link }); return; }
+      catch (e) { if (e.name === "AbortError") return; }
+    }
+    dlg.showModal();
   });
 
   // outras motos da mesma marca (à venda)

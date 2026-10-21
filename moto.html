@@ -10,15 +10,15 @@
 <meta property="og:title" content="Moto — Classificado Vintage Riders">
 <meta property="og:description" content="Detalhes da moto: fotos, ano, quilometragem, preço e contato.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/site/hero-1.webp">
+<meta property="og:image" content="https://leoperon2.github.io/vintage-riders-prototipo/img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=11"></script>
+<script src="js/tema.js?v=14"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=11">
-<link rel="stylesheet" href="css/site.css?v=11">
+<link rel="stylesheet" href="css/estilo.css?v=14">
+<link rel="stylesheet" href="css/site.css?v=14">
 
 </head>
 <body>
@@ -32,6 +32,18 @@
     <div class="carrossel" id="parecidas-lista"></div>
   </section>
 </main>
+<dialog class="sw" id="dlg-compartilhar" aria-labelledby="t-comp">
+  <div class="sw-barra"><span class="sw-app">Compartilhar</span><button class="sw-x" type="button" data-fechar aria-label="Fechar">✕</button></div>
+  <div class="cp-previa"><img id="cp-foto" alt="" width="84" height="64"><div><strong id="cp-nome"></strong><span id="cp-preco"></span></div></div>
+  <h2 id="t-comp" class="sr-only">Escolha como compartilhar</h2>
+  <div class="sw-acoes">
+    <a class="btn zap" id="cp-zap" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn sec" id="cp-tg" target="_blank" rel="noopener">Telegram</a>
+    <a class="btn sec" id="cp-mail">E-mail</a>
+    <button class="btn sec" id="cp-copiar" type="button">Copiar link</button>
+  </div>
+  <div class="sw-rodape"><button class="btn sec" type="button" data-fechar>Fechar</button></div>
+</dialog>
 <div class="lightbox" id="lb" role="dialog" aria-label="Foto ampliada">
   <button class="lb-x" aria-label="Fechar">✕</button>
   <button class="lb-p" aria-label="Anterior">‹</button>
@@ -40,10 +52,10 @@
 </div>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=11"></script>
-<script src="js/api.js?v=11"></script>
-<script src="js/layout.js?v=11"></script>
-<script src="js/moto.js?v=11"></script>
-<script src="js/motion.js?v=11"></script>
+<script src="js/config.js?v=14"></script>
+<script src="js/api.js?v=14"></script>
+<script src="js/layout.js?v=14"></script>
+<script src="js/moto.js?v=14"></script>
+<script src="js/motion.js?v=14"></script>
 </body>
 </html>
