@@ -13,12 +13,12 @@
 <meta property="og:image" content="img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=7"></script>
+<script src="js/tema.js?v=8"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=7">
-<link rel="stylesheet" href="css/site.css?v=7">
+<link rel="stylesheet" href="css/estilo.css?v=8">
+<link rel="stylesheet" href="css/site.css?v=8">
 
 </head>
 <body>
@@ -65,7 +65,7 @@ python3 -m http.server 8000      # abra http://localhost:8000
 git add -A &amp;&amp; git commit -m "descreva a mudança" &amp;&amp; git push origin main</pre>
     <ul>
       <li>O GitHub Pages publica o que estiver em <code>main</code> em 1 a 2 minutos.</li>
-      <li><strong>Cache:</strong> os links de CSS e JS nos HTML têm <code>?v=N</code>. Ao alterar um CSS/JS, aumente o número em todos os HTML: <code>sed -i 's/?v=5/?v=7/g' *.html admin/index.html</code>. Sem isso, navegadores podem manter a versão antiga.</li>
+      <li><strong>Cache:</strong> os links de CSS e JS nos HTML têm <code>?v=N</code>. Ao alterar um CSS/JS, aumente o número em todos os HTML: <code>sed -i 's/?v=5/?v=6/g' *.html admin/index.html</code>. Sem isso, navegadores podem manter a versão antiga.</li>
       <li>Os HTML são a fonte da verdade: edite-os diretamente.</li>
     </ul>
   </section>
@@ -95,13 +95,22 @@ git add -A &amp;&amp; git commit -m "descreva a mudança" &amp;&amp; git push or
       <li><strong>Situação do anúncio</strong> (<code>motos.status</code>): <code>ativo</code> (à venda), <code>vendido</code> (aparece como vendida, sem contato) e <code>oculto</code> (fora do site).</li>
       <li><strong>Segurança por RLS:</strong> o público só lê <code>ativo</code> e <code>vendido</code>; só quem está em <code>admins</code> escreve, edita, exclui e envia fotos (bucket <code>fotos</code>). A chave em <code>js/config.js</code> é pública e é segura por causa disso.</li>
       <li>Recriar o banco: rode <code>supabase/schema.sql</code> e depois <code>supabase/seed.sql</code> no SQL Editor.</li>
+      <li><strong>Aviso automático de pedidos:</strong> o gatilho <code>chamados_leo_avisa</code> chama a função <code>notificar_chamado()</code> a cada novo pedido (extensão <code>pg_net</code>). Ela envia uma mensagem por <strong>Telegram</strong> (bot) e um e-mail via <strong>FormSubmit</strong>. Destinatários e credenciais ficam na tabela privada <code>config_notificacao</code>, que a API pública não consegue ler.</li>
     </ul>
 <pre class="cod">-- novo administrador: 1) Authentication &gt; Users &gt; Add user (e-mail e senha)
 -- 2) no SQL Editor:
 insert into public.admins (email) values ('novo-admin@exemplo.com');
 
 -- ver pedidos da página de suporte:
-select * from public.chamados_leo order by created_at desc;</pre>
+select * from public.chamados_leo order by created_at desc;
+
+-- trocar quem recebe os avisos (ex.: novo profissional):
+insert into public.config_notificacao (chave, valor) values
+  ('email_aviso', 'novo@exemplo.com'),
+  ('telegram_token', 'TOKEN_DO_BOT'),        -- criado no @BotFather
+  ('telegram_chat_id', 'ID_DO_CHAT')         -- id de quem recebe (veja /getUpdates do bot)
+on conflict (chave) do update set valor = excluded.valor;
+-- o e-mail novo precisa ser confirmado uma vez (link enviado pelo FormSubmit).</pre>
     <p class="aviso">O administrador provisório da demonstração é <code>admin@vintageriders.demo</code>. Troque a senha e cadastre o e-mail real do cliente.</p>
   </section>
 
@@ -112,6 +121,7 @@ select * from public.chamados_leo order by created_at desc;</pre>
 
   <section class="bloco"><h2>7. Pendências conhecidas</h2>
     <ul class="grid-checks">
+      <li>Manter ativos os avisos automáticos: confirmar o e-mail no FormSubmit e configurar o bot do Telegram (seção 5).</li>
       <li>Preencher o contato em <code>js/config.js</code> (campo <code>LEO</code>).</li>
       <li>Revisar a política de privacidade (veio do site antigo com trechos de modelo e endereço divergente).</li>
       <li>Confirmar o endereço oficial do showroom (o site antigo tinha três).</li>
@@ -147,10 +157,10 @@ select * from public.chamados_leo order by created_at desc;</pre>
 </main>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=7"></script>
-<script src="js/api.js?v=7"></script>
-<script src="js/layout.js?v=7"></script>
+<script src="js/config.js?v=8"></script>
+<script src="js/api.js?v=8"></script>
+<script src="js/layout.js?v=8"></script>
 <script>(function(){var L=CONFIG.LEO,e=document.getElementById("g-contato");if(e&&!/exemplo/.test(L.EMAIL))e.textContent=L.NOME+" — "+L.WHATSAPP_TXT+" — "+L.EMAIL;})();</script>
-<script src="js/motion.js?v=7"></script>
+<script src="js/motion.js?v=8"></script>
 </body>
 </html>

@@ -13,12 +13,12 @@
 <meta property="og:image" content="img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=7"></script>
+<script src="js/tema.js?v=8"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=7">
-<link rel="stylesheet" href="css/site.css?v=7">
+<link rel="stylesheet" href="css/estilo.css?v=8">
+<link rel="stylesheet" href="css/site.css?v=8">
 
 </head>
 <body>
@@ -42,13 +42,13 @@
     <section class="opcao">
       <span class="rotulo">Opção 1</span>
       <h2>Léo sumiu</h2>
-      <p>Mandou mensagem, ligou, mandou sinal de fumaça e nada? Aperte o botão: o pedido fica registrado e o Léo recebe um aviso por <strong>WhatsApp e e-mail</strong> dizendo que você quer falar com ele.</p>
+      <p>Mandou mensagem, ligou, mandou sinal de fumaça e nada? Aperte o botão: o pedido é registrado e o sistema <strong>avisa o Léo automaticamente, na hora</strong>, por mensagem no celular e por e-mail, dizendo que você quer falar com ele. Você ainda pode mandar uma mensagem pronta pelo WhatsApp, se quiser.</p>
       <button class="btn" id="btn-sumiu" type="button">Léo sumiu</button>
     </section>
     <section class="opcao tchau">
       <span class="rotulo">Opção 2</span>
       <h2>Tchau</h2>
-      <p>Acabou o contrato ou vocês preferem seguir com outra pessoa? Sem drama. Gere o <strong>guia de passagem</strong> e entregue a outro profissional: ele recebe tudo o que precisa para assumir a manutenção.</p>
+      <p>Acabou o contrato ou vocês preferem seguir com outra pessoa? Sem drama. Gere o <strong>guia de passagem</strong> e entregue a outro profissional: ele recebe tudo o que precisa para assumir a manutenção. O Léo também é <strong>avisado automaticamente</strong> de que você pediu o guia, sem rancor e sem surpresa para ninguém.</p>
       <button class="btn sec" id="btn-tchau" type="button">Tchau</button>
     </section>
   </div>
@@ -60,19 +60,30 @@
         <h3>Léo sumiu</h3>
         <ol class="passos">
           <li><span>Você toca no botão e deixa nome e telefone.</span></li>
-          <li><span>O pedido é registrado e abrimos o WhatsApp e o e-mail com a mensagem já escrita.</span></li>
-          <li><span>Você só envia. O Léo responde assim que reaparecer.</span></li>
+          <li><span>O pedido é registrado e o sistema dispara o aviso automático para o Léo (celular e e-mail).</span></li>
+          <li><span>Se quiser, mande também a mensagem pronta no WhatsApp. O Léo responde assim que reaparecer.</span></li>
         </ol>
       </div>
       <div>
         <h3>Tchau</h3>
         <ol class="passos">
           <li><span>Você toca no botão e informa quem vai assumir (se já souber).</span></li>
-          <li><span>Baixa o guia de passagem e envia por e-mail ou WhatsApp.</span></li>
+          <li><span>O sistema avisa o Léo automaticamente. Você baixa o guia e envia por e-mail ou WhatsApp.</span></li>
           <li><span>O novo profissional tem o mapa completo do projeto. Sem recomeçar do zero.</span></li>
         </ol>
       </div>
     </div>
+  </section>
+
+  <section class="bloco" id="transparencia">
+    <h2>Transparência: o que acontece quando você clica</h2>
+    <ul>
+      <li><strong>Os dois botões avisam o Léo automaticamente.</strong> Ao enviar o formulário de "Léo sumiu" ou de "Tchau", o sistema dispara um aviso por mensagem no celular e por e-mail. Você não precisa mandar nada para isso acontecer.</li>
+      <li><strong>O que o Léo recebe:</strong> o tipo de pedido, seu nome, seu contato, o recado que você escrever e, no "Tchau", o contato do novo profissional (se você informar).</li>
+      <li><strong>O que fica guardado:</strong> esses mesmos dados e o horário do pedido, para o Léo conseguir responder.</li>
+      <li><strong>O que NÃO acontece sozinho:</strong> nada é enviado ao novo profissional sem você. O WhatsApp e o e-mail com o guia ficam sob o seu controle, e só saem se você tocar em enviar.</li>
+      <li><strong>Quem vê:</strong> o Léo e, se o site mudar de mãos, o profissional que assumir.</li>
+    </ul>
   </section>
 
   <section class="bloco">
@@ -96,7 +107,8 @@
     <details class="faq"><summary>Eu continuo cadastrando anúncios normalmente?</summary><div>Sim. O painel de anúncios funciona sem o Léo: criar, editar, ocultar, marcar como vendida e excluir.</div></details>
     <details class="faq"><summary>O novo profissional vai precisar refazer tudo?</summary><div>Não. O projeto usa HTML, CSS e JavaScript simples, sem ferramentas complicadas de instalar. Qualquer profissional web consegue assumir lendo o guia.</div></details>
     <details class="faq"><summary>Clicar em "Tchau" é rescindir contrato?</summary><div>Não. É só continuidade: um jeito organizado de passar o bastão. Questões de contrato e propriedade ficam com o que foi combinado entre as partes.</div></details>
-    <details class="faq"><summary>Meus dados ficam registrados?</summary><div>Só o que você digitar nos botões (nome, contato e mensagem), usado apenas para o Léo conseguir responder.</div></details>
+    <details class="faq"><summary>Como o Léo é avisado?</summary><div>No instante em que o pedido é registrado, o banco de dados dispara um aviso automático para o Léo por mensagem no celular (Telegram) e por e-mail. Isso vale para os dois botões. O aviso é disparado pelo sistema, não depende de você mandar mensagem.</div></details>
+    <details class="faq"><summary>Meus dados ficam registrados?</summary><div>Só o que você digitar nos botões (nome, contato, recado e, no Tchau, o contato do novo profissional), usado apenas para o Léo conseguir responder.</div></details>
   </section>
 </main>
 
@@ -104,7 +116,7 @@
   <div class="sw-barra"><span class="sw-app">Vintage Riders — Suporte</span><button class="sw-x" type="button" data-fechar aria-label="Fechar">✕</button></div>
   <div data-passo="1">
     <div class="sw-corpo so-texto"><div class="sw-icone alerta" aria-hidden="true">!</div>
-      <div><h2 id="t-sumiu">Avisar o Léo</h2><p>Deixe seus dados e eu preparo a mensagem para ele no WhatsApp e no e-mail.</p></div></div>
+      <div><h2 id="t-sumiu">Avisar o Léo</h2><p>Deixe seus dados. <strong>O Léo é avisado automaticamente</strong> assim que você enviar, e eu deixo uma mensagem pronta caso queira reforçar.</p></div></div>
     <form class="form-sw" id="form-sumiu">
       <div><label for="nome">Seu nome *</label><input id="nome" name="nome" required maxlength="120" autocomplete="name"></div>
       <div><label for="contato">Telefone ou WhatsApp *</label><input id="contato" name="contato" required maxlength="160" inputmode="tel" autocomplete="tel"></div>
@@ -129,7 +141,7 @@
   <div class="sw-barra"><span class="sw-app">Vintage Riders — Suporte</span><button class="sw-x" type="button" data-fechar aria-label="Fechar">✕</button></div>
   <div data-passo="1">
     <div class="sw-corpo so-texto"><div class="sw-icone" aria-hidden="true">i</div>
-      <div><h2 id="t-tchau">Passar o bastão</h2><p>Sem rancor. Vamos gerar o guia de passagem para quem vai assumir o site.</p></div></div>
+      <div><h2 id="t-tchau">Passar o bastão</h2><p>Sem rancor. Vamos gerar o guia de passagem. <strong>O Léo é avisado automaticamente</strong> de que você pediu, para ninguém ser pego de surpresa.</p></div></div>
     <form class="form-sw" id="form-tchau">
       <div><label for="nome">Seu nome *</label><input id="nome" name="nome" required maxlength="120" autocomplete="name"></div>
       <div><label for="profissional">E-mail ou WhatsApp do novo profissional (opcional)</label><input id="profissional" name="profissional" maxlength="300"></div>
@@ -151,10 +163,10 @@
 </dialog>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=7"></script>
-<script src="js/api.js?v=7"></script>
-<script src="js/layout.js?v=7"></script>
-<script src="js/leosumiu.js?v=7"></script>
-<script src="js/motion.js?v=7"></script>
+<script src="js/config.js?v=8"></script>
+<script src="js/api.js?v=8"></script>
+<script src="js/layout.js?v=8"></script>
+<script src="js/leosumiu.js?v=8"></script>
+<script src="js/motion.js?v=8"></script>
 </body>
 </html>

@@ -79,3 +79,62 @@ with check (
   and char_length(coalesce(mensagem,'')) <= 1000 and char_length(coalesce(profissional,'')) <= 300
 );
 -- para ver os pedidos: Supabase > Table Editor > chamados_leo
+
+-- ---------- aviso automático de novos pedidos (Telegram + e-mail) ----------
+create extension if not exists pg_net with schema extensions;
+
+-- configuração PRIVADA: RLS ligado e nenhuma policy = a API pública não lê nem escreve.
+create table if not exists public.config_notificacao (chave text primary key, valor text not null);
+alter table public.config_notificacao enable row level security;
+revoke all on public.config_notificacao from anon, authenticated;
+-- chaves usadas (preencha no SQL Editor, NUNCA no repositório):
+--   telegram_token, telegram_chat_id, email_aviso
+
+create or replace function public.notificar_chamado() returns trigger
+language plpgsql security definer set search_path = public as $$
+declare
+  v_tok text; v_chat text; v_email text; v_fone text; v_wa text; v_titulo text; v_corpo text;
+begin
+  select valor into v_tok   from public.config_notificacao where chave = 'telegram_token';
+  select valor into v_chat  from public.config_notificacao where chave = 'telegram_chat_id';
+  select valor into v_email from public.config_notificacao where chave = 'email_aviso';
+
+  v_fone := regexp_replace(coalesce(new.contato, ''), '\D', '', 'g');
+  v_wa := case when length(v_fone) >= 10 then 'https://wa.me/' || case when left(v_fone,2) = '55' then v_fone else '55' || v_fone end end;
+  if new.tipo = 'tchau' then
+    v_titulo := 'TCHAU: ' || coalesce(nullif(new.nome,''),'um cliente') || ' pediu o guia de passagem';
+  else
+    v_titulo := 'LÉO SUMIU: ' || coalesce(nullif(new.nome,''),'um cliente') || ' quer falar com você';
+  end if;
+  v_corpo := concat_ws(E'\n',
+    case when coalesce(new.contato,'') <> '' then 'Contato: ' || new.contato end,
+    case when coalesce(new.profissional,'') <> '' then 'Novo profissional: ' || new.profissional end,
+    case when coalesce(new.mensagem,'') <> '' then 'Recado: ' || new.mensagem end,
+    case when v_wa is not null then 'Responder: ' || v_wa end,
+    'Origem: página Plano B do site Vintage Riders');
+
+  if v_tok is not null and v_chat is not null then          -- Telegram
+    begin
+      perform net.http_post(
+        url := 'https://api.telegram.org/bot' || v_tok || '/sendMessage',
+        body := jsonb_build_object('chat_id', v_chat, 'text', v_titulo || E'\n\n' || v_corpo, 'disable_web_page_preview', true),
+        headers := '{"Content-Type":"application/json"}'::jsonb, timeout_milliseconds := 15000);
+    exception when others then null; end;
+  end if;
+
+  if v_email is not null and v_email <> '' then              -- e-mail (FormSubmit: confirmar o endereço 1x)
+    begin
+      perform net.http_post(
+        url := 'https://formsubmit.co/ajax/' || v_email,
+        body := jsonb_build_object('_subject', v_titulo, '_template', 'box', '_captcha', 'false',
+                                   'tipo', new.tipo, 'nome', new.nome, 'contato', new.contato,
+                                   'novo_profissional', new.profissional, 'recado', new.mensagem, 'responder_no_whatsapp', v_wa),
+        headers := '{"Content-Type":"application/json","Accept":"application/json","Origin":"https://leoperon2.github.io","Referer":"https://leoperon2.github.io/vintage-riders-prototipo/leosumiu.html"}'::jsonb,
+        timeout_milliseconds := 15000);
+    exception when others then null; end;
+  end if;
+  return new;   -- falha no aviso nunca impede o registro do pedido
+end $$;
+revoke all on function public.notificar_chamado() from public, anon, authenticated;
+
+create trigger chamados_leo_avisa after insert on public.chamados_leo for each row execute function public.notificar_chamado();
