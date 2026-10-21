@@ -54,14 +54,14 @@
   const anoNum = (m) => parseInt(m.ano, 10) || 0;
 
   // Card de moto (usado na home, no catálogo e nas "parecidas")
-  function card(m) {
+  function card(m, eager = false) {
     const etiqueta =
       m.status === "vendido" ? `<span class="tag tag-vendida">Vendida</span>` :
       m.status === "acervo" ? `<span class="tag tag-acervo">Acervo</span>` : "";
     return `
       <a class="card" href="${BASE}moto.html?s=${encodeURIComponent(m.slug)}">
         <div class="card-foto">
-          <img src="${foto(m.capa || m.fotos?.[0])}" alt="${esc(m.marca)} ${esc(m.modelo)} ${esc(m.ano)}" loading="lazy" decoding="async">
+          <img src="${foto(m.capa || m.fotos?.[0])}" alt="${esc(m.marca)} ${esc(m.modelo)} ${esc(m.ano)}" loading="${eager === true ? "eager" : "lazy"}" decoding="async">
           ${m.ano ? `<span class="card-ano">${esc(m.ano)}</span>` : ""}${etiqueta}
         </div>
         <div class="card-corpo">

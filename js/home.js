@@ -33,7 +33,7 @@
   const [anuncios, arq] = await Promise.all([buscarAnuncios(), acervo()]);
   const aVenda = anuncios.filter((m) => m.status === "ativo");
 
-  $("novidades").innerHTML = aVenda.slice(0, 10).map(card).join("") || `<div class="vazio">Nenhum anúncio no momento.</div>`;
+  $("novidades").innerHTML = aVenda.slice(0, 10).map((m, i) => card(m, i < 6)).join("") || `<div class="vazio">Nenhum anúncio no momento.</div>`;
 
   const cont = {};
   [...aVenda, ...arq].forEach((m) => { if (m.marca) cont[m.marca] = (cont[m.marca] || 0) + 1; });
@@ -43,5 +43,5 @@
     .join("");
 
   const destaque = arq.filter((m) => m.capa && m.valor).sort((a, b) => b.valor - a.valor).slice(0, 10);
-  $("acervo").innerHTML = destaque.map(card).join("");
+  $("acervo").innerHTML = destaque.map((m, i) => card(m, i < 6)).join("");
 })();

@@ -73,7 +73,7 @@
   const parecidas = anuncios.filter((x) => x.status === "ativo" && x.slug !== m.slug && x.marca === m.marca).slice(0, 8);
   const extra = parecidas.length >= 4 ? parecidas : [...parecidas, ...anuncios.filter((x) => x.status === "ativo" && x.slug !== m.slug && x.marca !== m.marca).slice(0, 8 - parecidas.length)];
   if (extra.length) {
-    $("parecidas-lista").innerHTML = extra.map(card).join("");
+    $("parecidas-lista").innerHTML = extra.map((m, i) => card(m, i < 6)).join("");
     $("parecidas").hidden = false;
   }
 })();

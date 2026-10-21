@@ -68,7 +68,7 @@
     $("limpar").hidden = !filtrando;
     $("aviso-acervo").hidden = estado.aba !== "acervo";
     $("grade").innerHTML = l.length
-      ? l.slice(0, estado.mostrar).map(card).join("")
+      ? l.slice(0, estado.mostrar).map((m) => card(m)).join("")
       : `<div class="vazio">Nenhuma moto com esses filtros.<br>Tente limpar os filtros ou buscar outro modelo.</div>`;
     const resto = l.length - estado.mostrar;
     $("mais").hidden = resto <= 0;
