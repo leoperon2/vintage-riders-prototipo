@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR" data-base="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia de passagem do projeto — Vintage Riders</title>
+<meta name="description" content="Guia técnico para o profissional que vai assumir a manutenção do site do Classificado Vintage Riders.">
+<meta name="theme-color" content="#14110e">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Guia de passagem do projeto — Vintage Riders">
+<meta property="og:description" content="Guia técnico para o profissional que vai assumir a manutenção do site do Classificado Vintage Riders.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/site/hero-1.webp">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script src="js/tema.js?v=6"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css?v=6">
+<link rel="stylesheet" href="css/site.css?v=6">
+
+</head>
+<body>
+<div id="topo"></div>
+
+<header class="pagina-topo">
+  <div class="wrap">
+    <h1>Guia de passagem do projeto</h1>
+    <p>Documento para o profissional que vai assumir o site do Classificado Vintage Riders. Leia de cima para baixo: em cerca de 15 minutos você sabe como tudo funciona.</p>
+    <div class="no-print-barra"><button class="btn" type="button" onclick="window.print()">Imprimir / salvar em PDF</button><a class="btn sec" href="leosumiu.html">Voltar</a></div>
+  </div>
+</header>
+<main class="wrap conteudo">
+
+  <section class="bloco"><h2>1. Resumo</h2>
+    <p>Site de catálogo de motos clássicas com painel de administração. É um site <strong>estático</strong> (HTML, CSS e JavaScript puros, sem build nem framework) que lê os anúncios de um banco <strong>Supabase</strong>. Não há servidor próprio para manter.</p>
+    <ul>
+      <li><strong>Público:</strong> home, catálogo (À venda e Acervo), detalhe da moto, serviços, sobre, contato, privacidade.</li>
+      <li><strong>Painel</strong> (<code>/admin</code>): login, criar, editar, ocultar, marcar como vendida e excluir anúncios, com upload de fotos.</li>
+      <li><strong>Suporte:</strong> página <code>leosumiu.html</code> (esta passagem de bastão).</li>
+    </ul>
+  </section>
+
+  <section class="bloco"><h2>2. Onde está cada coisa</h2>
+    <table class="t">
+      <tr><th>Item</th><th>Onde</th><th>Titular hoje</th></tr>
+      <tr><td>Código-fonte</td><td>GitHub: <code>leoperon2/vintage-riders-prototipo</code> (público)</td><td>Léo (a transferir)</td></tr>
+      <tr><td>Hospedagem do site</td><td>GitHub Pages, branch <code>main</code>, raiz do repositório</td><td>Léo (a transferir)</td></tr>
+      <tr><td>Banco, login e fotos</td><td>Supabase, projeto <code>ucfwgrbxlgyrgfwadoed</code> (região São Paulo, plano gratuito)</td><td>Léo (a transferir)</td></tr>
+      <tr><td>Endereço atual</td><td><code>leoperon2.github.io/vintage-riders-prototipo</code></td><td>Léo</td></tr>
+      <tr><td>Domínio definitivo</td><td>Ainda não configurado</td><td>Cliente</td></tr>
+      <tr><td>Instagram</td><td>@classificadovintageriders</td><td>Cliente</td></tr>
+      <tr><td>Site antigo (Bagy)</td><td>classificadovintageriders.com.br</td><td>Cliente</td></tr>
+    </table>
+    <p class="aviso">Este documento não contém senhas nem chaves secretas. Os acessos precisam ser entregues pelo titular de cada conta (ver seção 8).</p>
+  </section>
+
+  <section class="bloco"><h2>3. Como rodar e publicar</h2>
+<pre class="cod">git clone https://github.com/leoperon2/vintage-riders-prototipo
+cd vintage-riders-prototipo
+python3 -m http.server 8000      # abra http://localhost:8000
+
+# depois de editar e testar:
+git add -A &amp;&amp; git commit -m "descreva a mudança" &amp;&amp; git push origin main</pre>
+    <ul>
+      <li>O GitHub Pages publica o que estiver em <code>main</code> em 1 a 2 minutos.</li>
+      <li><strong>Cache:</strong> os links de CSS e JS nos HTML têm <code>?v=N</code>. Ao alterar um CSS/JS, aumente o número em todos os HTML: <code>sed -i 's/?v=5/?v=6/g' *.html admin/index.html</code>. Sem isso, navegadores podem manter a versão antiga.</li>
+      <li>Os HTML são a fonte da verdade: edite-os diretamente.</li>
+    </ul>
+  </section>
+
+  <section class="bloco"><h2>4. Mapa do projeto</h2>
+    <table class="t">
+      <tr><th>Caminho</th><th>Para que serve</th></tr>
+      <tr><td><code>*.html</code></td><td>Páginas públicas. Cabeçalho e rodapé são injetados por <code>js/layout.js</code>.</td></tr>
+      <tr><td><code>admin/index.html</code></td><td>Painel de anúncios (usa <code>js/admin.js</code> e a biblioteca supabase-js via CDN).</td></tr>
+      <tr><td><code>css/estilo.css</code></td><td>Base: cores, tema claro/escuro (variáveis CSS), cards, formulários, painel.</td></tr>
+      <tr><td><code>css/site.css</code></td><td>Seções das páginas, movimento ao rolar, avisos estilo janela, impressão.</td></tr>
+      <tr><td><code>js/config.js</code></td><td>Chaves <em>públicas</em> do Supabase, telefones, endereço e contatos. Ponto central de configuração.</td></tr>
+      <tr><td><code>js/api.js</code></td><td>Leitura de anúncios (Supabase, com cópia local de reserva), acervo e card de moto.</td></tr>
+      <tr><td><code>js/home.js, motos.js, moto.js</code></td><td>Lógica da home, do catálogo (abas, filtros, paginação) e do detalhe.</td></tr>
+      <tr><td><code>js/motion.js, tema.js, layout.js</code></td><td>Animações ao rolar (respeitam "reduzir movimento"), tema claro/escuro e layout comum.</td></tr>
+      <tr><td><code>data/motos.json</code></td><td>Cópia local dos 37 anúncios do Instagram (reserva se o banco estiver fora do ar).</td></tr>
+      <tr><td><code>data/acervo.json</code>, <code>img/acervo/</code></td><td>1.198 motos do site antigo (só capa), estáticas. Status "acervo": a disponibilidade deve ser confirmada.</td></tr>
+      <tr><td><code>img/motos/</code>, <code>img/site/</code></td><td>Fotos dos anúncios do Instagram e imagens institucionais (banners, fundador, showroom).</td></tr>
+      <tr><td><code>scripts/</code></td><td><code>processar_posts.py</code> (Instagram para anúncios) e <code>processar_acervo.py</code> (acervo do site antigo). Precisam de Python 3 e Pillow.</td></tr>
+      <tr><td><code>supabase/schema.sql</code>, <code>seed.sql</code></td><td>Estrutura completa do banco e carga inicial dos anúncios.</td></tr>
+    </table>
+  </section>
+
+  <section class="bloco"><h2>5. Banco de dados (Supabase)</h2>
+    <ul>
+      <li><strong>Tabelas:</strong> <code>motos</code> (anúncios), <code>admins</code> (e-mails autorizados a editar) e <code>chamados_leo</code> (pedidos da página de suporte).</li>
+      <li><strong>Situação do anúncio</strong> (<code>motos.status</code>): <code>ativo</code> (à venda), <code>vendido</code> (aparece como vendida, sem contato) e <code>oculto</code> (fora do site).</li>
+      <li><strong>Segurança por RLS:</strong> o público só lê <code>ativo</code> e <code>vendido</code>; só quem está em <code>admins</code> escreve, edita, exclui e envia fotos (bucket <code>fotos</code>). A chave em <code>js/config.js</code> é pública e é segura por causa disso.</li>
+      <li>Recriar o banco: rode <code>supabase/schema.sql</code> e depois <code>supabase/seed.sql</code> no SQL Editor.</li>
+    </ul>
+<pre class="cod">-- novo administrador: 1) Authentication &gt; Users &gt; Add user (e-mail e senha)
+-- 2) no SQL Editor:
+insert into public.admins (email) values ('novo-admin@exemplo.com');
+
+-- ver pedidos da página de suporte:
+select * from public.chamados_leo order by created_at desc;</pre>
+    <p class="aviso">O administrador provisório da demonstração é <code>admin@vintageriders.demo</code>. Troque a senha e cadastre o e-mail real do cliente.</p>
+  </section>
+
+  <section class="bloco"><h2>6. Importação do Instagram</h2>
+    <p>No painel há o botão "Importar novos do Instagram", que hoje só exibe um aviso (depende de contrato). A base técnica existe: <code>scripts/processar_posts.py</code> converte o JSON do Apify (instagram-scraper) em anúncios e fotos otimizadas. Os posts seguem o padrão <em>Marca, Modelo, Ano, Km, Valor, Contato, Cidade, Obs</em>.</p>
+    <p>Para automatizar: um workflow do GitHub Actions que chama o Apify (token guardado como <em>secret</em>, nunca no repositório) e grava no Supabase evitando duplicar pelo campo <code>shortcode</code>. Alternativa oficial: Meta Graph API, com autorização da conta do cliente.</p>
+  </section>
+
+  <section class="bloco"><h2>7. Pendências conhecidas</h2>
+    <ul class="grid-checks">
+      <li>Preencher o contato em <code>js/config.js</code> (campo <code>LEO</code>).</li>
+      <li>Revisar a política de privacidade (veio do site antigo com trechos de modelo e endereço divergente).</li>
+      <li>Confirmar o endereço oficial do showroom (o site antigo tinha três).</li>
+      <li>Confirmar quais motos do acervo estão vendidas.</li>
+      <li>Trocar a senha do administrador provisório.</li>
+      <li>Configurar o domínio definitivo e redirecionamentos do site antigo.</li>
+      <li>Avaliar plano pago do Supabase (o gratuito pode pausar por inatividade).</li>
+      <li>Revisar os textos das dúvidas frequentes com o cliente.</li>
+    </ul>
+  </section>
+
+  <section class="bloco"><h2>8. Checklist de transferência de acessos</h2>
+    <p>O titular de cada conta precisa fazer (ou autorizar) estes passos. Sem isso, o novo profissional não consegue publicar nem acessar o banco.</p>
+    <ul class="grid-checks">
+      <li>GitHub: transferir o repositório (Settings &gt; Danger Zone &gt; Transfer) ou adicionar o profissional como colaborador.</li>
+      <li>Supabase: transferir o projeto para a organização do cliente ou convidar o profissional como membro.</li>
+      <li>Domínio: acesso ao registro e ao DNS.</li>
+      <li>Google Analytics e demais contas que o cliente já usa.</li>
+      <li>Administrador do painel: cadastrar o e-mail do cliente e trocar a senha provisória.</li>
+      <li>Qualquer chave secreta futura (Apify, e-mail transacional): guardar em gerenciador de senhas e em <em>secrets</em>, nunca no código.</li>
+    </ul>
+  </section>
+
+  <section class="bloco"><h2>9. Boas práticas</h2>
+    <ul>
+      <li>Nunca versionar a chave <code>service_role</code> do Supabase nem senhas.</li>
+      <li>Antes de mudar tabelas, exporte um backup (Table Editor &gt; Export) e teste num projeto separado.</li>
+      <li>Mantenha as regras RLS ligadas em todas as tabelas.</li>
+      <li>Teste no celular: a maior parte do público e do painel usa Android.</li>
+    </ul>
+    <p class="aviso">Dúvidas sobre decisões do projeto: contato do Léo em <span id="g-contato">js/config.js (campo LEO)</span>.</p>
+  </section>
+</main>
+
+<div id="rodape"></div>
+<script src="js/config.js?v=6"></script>
+<script src="js/api.js?v=6"></script>
+<script src="js/layout.js?v=6"></script>
+<script>(function(){var L=CONFIG.LEO,e=document.getElementById("g-contato");if(e&&!/exemplo/.test(L.EMAIL))e.textContent=L.NOME+" — "+L.WHATSAPP_TXT+" — "+L.EMAIL;})();</script>
+<script src="js/motion.js?v=6"></script>
+</body>
+</html>

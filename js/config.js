@@ -14,4 +14,8 @@ window.CONFIG = {
   HORARIO: "Seg a sex, 9h às 18h · Sáb, 9h às 12h",
   CNPJ: "23.689.297/0001-40",
   VIDEO_YOUTUBE: "qI_V5SqGQkQ",
+  SITE_URL: "https://leoperon2.github.io/vintage-riders-prototipo/",
+  REPO_URL: "https://github.com/leoperon2/vintage-riders-prototipo",
+  // >>> PREENCHER antes de entregar: contato de quem mantém o site (página leosumiu.html)
+  LEO: { NOME: "Léo", WHATSAPP: "55DDDNUMERO", WHATSAPP_TXT: "(DDD) 9 0000-0000", EMAIL: "seu-email@exemplo.com" },
 };

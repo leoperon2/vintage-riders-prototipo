@@ -229,3 +229,39 @@ dialog.sw[open] { animation: sw-entra 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 .sw-detalhe { color: var(--suave) !important; font-size: 13.5px !important; }
 .sw-rodape { display: flex; justify-content: flex-end; padding: 12px 18px 16px; background: var(--card); }
 .sw-rodape .btn { min-width: 96px; border-radius: 8px; }
+
+/* ====== Página "Léo sumiu" e guia de passagem ====== */
+.opcoes { display: grid; gap: 14px; }
+@media (min-width: 800px) { .opcoes { grid-template-columns: 1fr 1fr; gap: 20px; } }
+.opcao { background: var(--card); border: 1px solid var(--linha); border-radius: var(--raio); padding: 22px 20px; display: grid; gap: 10px; align-content: start; position: relative; overflow: hidden; }
+.opcao::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--marca-2); }
+.opcao.tchau::before { background: var(--suave); }
+.opcao h2 { margin: 6px 0 0; font: 600 clamp(26px, 5vw, 34px)/1.05 "Oswald", sans-serif; text-transform: uppercase; }
+.opcao p { margin: 0; color: var(--obs); }
+.opcao .rotulo { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--suave); font-weight: 600; }
+.opcao .btn { justify-self: start; min-height: 50px; padding: 0 26px; font-size: 16px; margin-top: 4px; }
+.passos-duplos { display: grid; gap: 16px; }
+@media (min-width: 800px) { .passos-duplos { grid-template-columns: 1fr 1fr; gap: 24px; } }
+.passos-duplos h3 { margin: 0 0 8px; font: 600 18px "Oswald", sans-serif; text-transform: uppercase; }
+.sw-icone.alerta { background: #d99a1e; font-style: normal; }
+.sw-icone.ok { background: #2e9b5a; font-style: normal; font-size: 24px; }
+.form-sw { display: grid; gap: 10px; padding: 4px 18px 0; }
+.form-sw .armadilha { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.sw-acoes { display: grid; gap: 8px; padding: 4px 18px 6px; }
+.sw-acoes .btn { width: 100%; }
+.sw-aviso { margin: 0 18px 8px; padding: 8px 12px; border-radius: 8px; background: #3d3217; color: #f0c56a; font-size: 13px; }
+:root[data-tema="claro"] .sw-aviso { background: #f6e8c4; color: #7a5612; }
+.sw-corpo.so-texto { padding-bottom: 12px; }
+table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; }
+table.t th, table.t td { padding: 9px 10px; border-bottom: 1px solid var(--linha); text-align: left; vertical-align: top; font-size: 14px; }
+table.t th { color: var(--suave); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+pre.cod { margin: 6px 0 12px; padding: 12px 14px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--linha); overflow-x: auto; font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; color: var(--obs); }
+.bloco code { background: var(--bg-2); padding: 1px 6px; border-radius: 5px; font: 13px ui-monospace, Menlo, Consolas, monospace; }
+.no-print-barra { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+@media print {
+  :root, :root[data-tema="claro"] { --bg: #fff; --bg-2: #f4f1ea; --card: #fff; --linha: #ccc; --texto: #111; --suave: #555; --obs: #222; --marca-2: #a32f1a; }
+  .topo, .rodape, .zap-flutuante, .progresso, .no-print-barra, .no-print { display: none !important; }
+  body { background: #fff; color: #111; }
+  .bloco { break-inside: avoid; border-color: #ccc; }
+  .rv, .rv-img { opacity: 1 !important; transform: none !important; }
+}
