@@ -50,6 +50,8 @@ def campos(desc):
 
 def limpar_obs(txt):
     txt = re.split(r"(?i)o conte[úu]do", txt or "")[0]
+    # a plataforma antiga corrompeu alguns valores ("R$25.000,00" virou "R.000,00")
+    txt = re.sub(r"R\.\d{3},\d{2}", "(valor a confirmar)", txt)
     return "\n".join(l.strip(" •⁠\t") for l in txt.splitlines() if l.strip(" •⁠\t"))
 
 

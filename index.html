@@ -1,91 +1,150 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-base="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Classificado Vintage Riders — Motos clássicas e antigas à venda</title>
-<meta name="description" content="O maior classificado de motos clássicas e antigas do Brasil. Honda, Yamaha, Suzuki, Harley, Ducati e muito mais, com fotos e contato direto.">
+<meta name="description" content="O maior classificado de motos clássicas e antigas do Brasil. Compre, venda e anuncie com intermediação segura. Showroom em Limeira-SP.">
 <meta name="theme-color" content="#14110e">
+
+<meta property="og:title" content="Classificado Vintage Riders — Motos clássicas e antigas à venda">
+<meta property="og:description" content="O maior classificado de motos clássicas e antigas do Brasil. Compre, venda e anuncie com intermediação segura. Showroom em Limeira-SP.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <script src="js/tema.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/site.css">
+
 </head>
 <body>
-<header class="topo">
-  <div class="wrap">
-    <a class="logo" href="./" aria-label="Classificado Vintage Riders">
-      <img src="img/logo.png" alt="" width="40" height="40">
-      <span class="logo-txt">Vintage Riders<small>Classificado</small></span>
-    </a>
-    <nav class="nav">
-      <a href="#anuncios">Anúncios</a>
-      <a href="#sobre">Sobre</a>
-      <a class="btn zap peq" id="zap-topo" href="#" target="_blank" rel="noopener">WhatsApp</a>
-    <button class="btn-tema" type="button" aria-label="Mudar tema"><svg class="lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></nav>
-  </div>
-</header>
+<div id="topo"></div>
 
-<section class="hero">
+<main>
+<section class="hero-foto" aria-label="Destaque">
+  <div class="slides"><div class="slide on"><picture><source media="(max-width: 700px)" srcset="img/site/hero-m-1.webp"><img src="img/site/hero-1.webp" alt="Showroom do Classificado Vintage Riders" fetchpriority=high decoding="async"></picture></div><div class="slide"><picture><source media="(max-width: 700px)" srcset="img/site/hero-m-2.webp"><img src="img/site/hero-2.webp" alt="Showroom do Classificado Vintage Riders" loading=lazy decoding="async"></picture></div><div class="slide"><picture><source media="(max-width: 700px)" srcset="img/site/hero-m-3.webp"><img src="img/site/hero-3.webp" alt="Showroom do Classificado Vintage Riders" loading=lazy decoding="async"></picture></div><div class="slide"><picture><img src="img/site/hero-4.webp" alt="Showroom do Classificado Vintage Riders" loading=lazy decoding="async"></picture></div></div>
+  <div class="pontos" id="pontos" aria-label="Escolher imagem"></div>
   <div class="wrap">
-    <h1>O maior classificado de <em>motos clássicas</em> do Brasil</h1>
-    <p>Fotos, preços e contato direto com o vendedor.</p>
-    <form class="busca" id="form-busca" role="search">
-      <input id="q" type="search" placeholder="Busque por marca, modelo ou cidade…" aria-label="Buscar anúncios" autocomplete="off">
+    <h1>O maior classificado de <em>motos clássicas</em> e antigas do Brasil</h1>
+    <p>Compre, venda e anuncie com intermediação segura. Showroom em Limeira-SP.</p>
+    <form class="busca" action="motos.html" role="search">
+      <input name="q" type="search" placeholder="Busque por marca, modelo ou cidade…" aria-label="Buscar motos" autocomplete="off">
       <button class="btn" type="submit">Buscar</button>
     </form>
-  </div>
-</section>
-
-<main class="wrap" id="anuncios">
-  <div class="filtros">
-    <div class="chips" id="chips" aria-label="Marcas"></div>
-    <div class="linha-filtros">
-      <select id="f-cidade" aria-label="Estado"><option value="">Todos os estados</option></select>
-      <select id="f-preco" aria-label="Preço máximo">
-        <option value="">Qualquer preço</option>
-        <option value="20000">Até R$ 20 mil</option>
-        <option value="30000">Até R$ 30 mil</option>
-        <option value="50000">Até R$ 50 mil</option>
-        <option value="80000">Até R$ 80 mil</option>
-        <option value="999999999">Acima de R$ 80 mil</option>
-      </select>
-      <select id="f-ano" aria-label="Época">
-        <option value="">Qualquer ano</option>
-        <option value="1979">Até 1979</option>
-        <option value="1989">Anos 80</option>
-        <option value="1999">Anos 90</option>
-        <option value="2000">2000 ou mais</option>
-      </select>
-      <select id="f-ordem" aria-label="Ordenar">
-        <option value="recentes">Mais recentes</option>
-        <option value="menor">Menor preço</option>
-        <option value="maior">Maior preço</option>
-        <option value="antigas">Mais antigas</option>
-      </select>
+    <div class="hero-ctas">
+      <a class="btn vidro" href="motos.html">Quero comprar</a>
+      <a class="btn vidro" href="servicos.html#anunciar">Quero anunciar</a>
+      <a class="btn vidro" href="sobre.html#duvidas">Tenho dúvidas</a>
     </div>
   </div>
-  <div class="resumo"><span id="contagem">Carregando…</span><button class="chip" id="limpar" hidden>Limpar filtros</button></div>
-  <div class="grade" id="grade">
-    <div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div>
-  </div>
-</main>
+</section>
 
-<section id="sobre" class="rodape">
+<div class="wrap diferenciais">
+  <div class="dif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Compra segura</b>do anúncio à transferência</span></div>
+  <div class="dif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><span><b>Frete exclusivo</b>cote antes de comprar</span></div>
+  <div class="dif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><b>Proteção de dados</b>segurança ponta a ponta</span></div>
+  <div class="dif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 3.5-3.5"/></svg><span><b>Assessoria 360º</b>vistoria em todo o processo</span></div>
+</div>
+
+<section class="secao alt" aria-labelledby="t-novidades">
   <div class="wrap">
-    <strong>Classificado Vintage Riders</strong>
-    <span>Rodovia Doutor Cássio de Freitas Levy, 1820 — Jardim Vanessa, Limeira/SP · Seg a sex, 9h às 18h</span>
-    <span>Os veículos são de responsabilidade do anunciante. O Vintage Riders faz a ligação entre vendedor e comprador.</span>
-    <span><a href="#" id="ig-link" target="_blank" rel="noopener">Instagram @classificadovintageriders</a> · <a href="admin/">Área do anunciante</a></span>
-    <span style="opacity:.6">Protótipo de demonstração. Anúncios e fotos pertencem aos respectivos anunciantes.</span>
+    <div class="sec-topo"><div><h2 id="t-novidades">Novidades</h2><p>Os anúncios mais recentes.</p></div><a class="ver-todas" href="motos.html">Ver todas →</a></div>
+    <div class="carrossel" id="novidades"><div class="esqueleto" style="width:240px;flex:none"></div><div class="esqueleto" style="width:240px;flex:none"></div></div>
   </div>
 </section>
 
+<section class="secao">
+  <div class="wrap numeros" aria-label="Números do Vintage Riders">
+    <div class="numero"><b>+3 mil</b><span>motos vendidas</span></div>
+    <div class="numero"><b>100%</b><span>de satisfação</span></div>
+    <div class="numero"><b>2 mi</b><span>de impressões por mês</span></div>
+    <div class="numero"><b>20 mil</b><span>de visitas por mês</span></div>
+  </div>
+</section>
+
+<section class="secao alt">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>Procure por marca</h2><p>Honda, Yamaha, Suzuki, Harley, Triumph e muito mais.</p></div></div>
+    <div class="marcas" id="marcas"></div>
+  </div>
+</section>
+
+<section class="secao" id="servicos">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2>Como podemos ajudar</h2><p>Do anúncio à chave na mão: cuidamos de todo o processo.</p></div><a class="ver-todas" href="servicos.html">Todos os serviços →</a></div>
+    <div class="servicos">
+      <a class="servico" href="servicos.html#anunciar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4l11 4V6L3 10zM14 9a3 3 0 0 1 0 6M6 14l1 5h3l-1-4"/></svg><h3>Anuncie sua moto</h3><p>Seu anúncio no Instagram e no site, com o público certo. Taxa única de R$ 99.</p></a>
+      <a class="servico" href="servicos.html#intermediacao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><h3>Intermediação</h3><p>Cuidamos da negociação, dos pagamentos e da papelada. Menos risco para você.</p></a>
+      <a class="servico" href="servicos.html#assessoria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 13l2 2 3.5-3.5"/></svg><h3>Assessoria 360º</h3><p>Vistoria técnica completa antes da compra, com checklist de 11 itens.</p></a>
+      <a class="servico" href="servicos.html#frete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><h3>Frete exclusivo</h3><p>Motorista treinado por nós e acompanhamento até a transferência.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="secao alt" aria-labelledby="t-acervo">
+  <div class="wrap">
+    <div class="sec-topo"><div><h2 id="t-acervo">Já passaram por aqui</h2><p>Uma amostra do acervo de motos que já anunciamos.</p></div><a class="ver-todas" href="motos.html?aba=acervo">Ver o acervo →</a></div>
+    <div class="carrossel" id="acervo"></div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap duas">
+    <div class="texto">
+      <span class="eyebrow">Clássicas</span>
+      <h2>Honda 750</h2>
+      <p>Cada moto tem uma história. Veja um pouco do que nos move: a paixão pelas clássicas e pelos sonhos de quem as coleciona.</p>
+    </div>
+    <button class="video-lite" id="video" type="button" aria-label="Assistir ao vídeo: Honda 750" data-id="qI_V5SqGQkQ">
+      <img src="https://img.youtube.com/vi/qI_V5SqGQkQ/hqdefault.jpg" alt="" loading="lazy"><span></span>
+    </button>
+  </div>
+</section>
+
+<section class="secao alt">
+  <div class="wrap duas">
+    <img src="img/site/fundador.webp" alt="Lucas Bertolini Mercuri, fundador do Classificado Vintage Riders" width="900" height="902" loading="lazy">
+    <div class="texto">
+      <span class="eyebrow">Sobre nós</span>
+      <h2>Realizando sonhos</h2>
+      <p>O maior classificado de motos clássicas e antigas do Brasil busca realizar sonhos e intermediar vendas com o máximo de segurança e tranquilidade para vendedor e comprador.</p>
+      <p><strong>Lucas Bertolini Mercuri</strong>, fundador e colecionador de motos clássicas e antigas.</p>
+      <div class="acoes-linha"><a class="btn" href="sobre.html">Conheça nossa história</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap duas inverte">
+    <img src="img/site/showroom.webp" alt="Fachada do showroom Vintage Riders em Limeira" width="900" height="1317" loading="lazy">
+    <div class="texto">
+      <span class="eyebrow">Showroom</span>
+      <h2>Venha conhecer</h2>
+      <p>Nosso showroom, em Limeira-SP, conta com um acervo de motos clássicas exclusivas.</p>
+      <p><svg width="18" height="18" style="vertical-align:-3px;color:var(--marca-2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Rodovia Dr. Cássio de Freitas Levy, 1820 — Jardim Vanessa, Limeira/SP<br>Seg a sex, 9h às 18h · Sáb, 9h às 12h</p>
+      <div class="acoes-linha"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rodovia+Doutor+C%C3%A1ssio+de+Freitas+Levy%2C+1820%2C+Limeira+SP" target="_blank" rel="noopener">Como chegar</a><a class="btn sec" href="contato.html">Falar com a gente</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao" style="padding-top:0">
+  <div class="wrap">
+    <div class="faixa-cta">
+      <div><h2>Quer vender sua moto?</h2><p>Anuncie com quem tem o público certo. Chame no WhatsApp e a gente explica tudo.</p></div>
+      <a class="btn" href="https://wa.me/5519971180066?text=Ol%C3%A1!%20Quero%20anunciar%20minha%20moto." target="_blank" rel="noopener">Quero anunciar</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="rodape"></div>
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
-<script src="js/site.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

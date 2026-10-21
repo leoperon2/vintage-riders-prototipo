@@ -64,34 +64,38 @@
   }
   function desenharLista() {
     const q = $("filtro").value.trim().toLowerCase();
-    const l = anuncios.filter((m) => !q || `${m.marca} ${m.modelo} ${m.ano} ${m.cidade}`.toLowerCase().includes(q));
-    $("contagem").textContent = `${l.length} anúncio(s) · ${anuncios.filter((m) => m.status === "oculto").length} oculto(s)`;
+    const st = $("filtro-status").value;
+    const l = anuncios.filter((m) => (!q || `${m.marca} ${m.modelo} ${m.ano} ${m.cidade}`.toLowerCase().includes(q)) && (!st || m.status === st));
+    const n = (s) => anuncios.filter((m) => m.status === s).length;
+    $("contagem").textContent = `${l.length} exibido(s) · ${n("ativo")} à venda · ${n("vendido")} vendida(s) · ${n("oculto")} oculta(s)`;
     $("lista").innerHTML = l.map((m) => `
       <div class="item ${m.status === "oculto" ? "oculta" : ""}" data-id="${m.id}">
         <img src="${foto(m.capa || m.fotos?.[0], BASE)}" alt="" loading="lazy">
         <div>
           <div class="item-t">${esc(m.marca)} ${esc(m.modelo)} ${esc(m.ano)}
-            <span class="selo ${m.status}">${m.status === "ativo" ? "Visível" : "Oculto"}</span></div>
+            <span class="selo ${m.status}">${{ ativo: "À venda", vendido: "Vendida", oculto: "Oculto" }[m.status]}</span></div>
           <div class="item-s">${preco(m.valor)} · ${esc(m.cidade || "")}</div>
         </div>
         <div class="acoes">
           <button class="btn sec peq" data-a="editar">Editar</button>
-          <button class="btn sec peq" data-a="alternar">${m.status === "ativo" ? "Ocultar" : "Mostrar"}</button>
+          <button class="btn sec peq" data-a="vendida">${m.status === "vendido" ? "Voltar à venda" : "Marcar vendida"}</button>
+          <button class="btn sec peq" data-a="alternar">${m.status === "oculto" ? "Mostrar" : "Ocultar"}</button>
           <button class="btn perigo peq" data-a="excluir">Excluir</button>
         </div>
       </div>`).join("") || `<div class="vazio">Nenhum anúncio.</div>`;
   }
   $("filtro").addEventListener("input", desenharLista);
+  $("filtro-status").addEventListener("change", desenharLista);
   $("lista").addEventListener("click", async (ev) => {
     const b = ev.target.closest("button[data-a]");
     if (!b) return;
     const m = anuncios.find((x) => x.id === b.closest(".item").dataset.id);
     if (b.dataset.a === "editar") abrirForm(m);
-    if (b.dataset.a === "alternar") {
-      const novo = m.status === "ativo" ? "oculto" : "ativo";
+    if (b.dataset.a === "alternar" || b.dataset.a === "vendida") {
+      const novo = b.dataset.a === "vendida" ? (m.status === "vendido" ? "ativo" : "vendido") : (m.status === "oculto" ? "ativo" : "oculto");
       const { error } = await db.from("motos").update({ status: novo }).eq("id", m.id);
       if (error) return aviso("Erro: " + error.message);
-      aviso(novo === "oculto" ? "Anúncio oculto do site" : "Anúncio visível no site");
+      aviso({ oculto: "Anúncio oculto do site", vendido: "Anúncio marcado como vendido", ativo: "Anúncio à venda no site" }[novo]);
       await carregar();
     }
     if (b.dataset.a === "excluir") {
@@ -189,7 +193,7 @@
   $("preencher").addEventListener("click", () => {
     const t = $("legenda").value;
     const g = (n) => (t.match(new RegExp(`^${n}:[ \\t]*(.*)$`, "mi")) || [, ""])[1].trim();
-    const ob = (t.match(/^Obs:[ \t]*(.*?)(?:\nO conte[úu]do|\n#|$)/ims) || [, ""])[1]
+    const ob = (t.match(/^Obs:[ \t]*([\s\S]*?)(?:\nO conte[úu]do|\n#|(?![\s\S]))/im) || [, ""])[1]
       .split("\n").map((l) => l.replace(/[•⁠]/g, "").trim()).filter(Boolean).join("\n");
     $("marca").value = g("Marca"); $("modelo").value = g("Modelo"); $("ano").value = g("Ano");
     $("km").value = g("Km"); $("cidade").value = g("Cidade").replace(/\s*-\s*/g, "-");

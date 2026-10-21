@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-base="../">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&family=Yellowtail&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/estilo.css">
+<link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
 <header class="topo">
@@ -42,6 +43,7 @@
   <section id="painel" class="oculto-js">
     <div class="barra">
       <input id="filtro" type="search" placeholder="Buscar nos meus anúncios…">
+      <select id="filtro-status" aria-label="Filtrar por situação" style="max-width:190px"><option value="">Todas as situações</option><option value="ativo">À venda</option><option value="vendido">Vendidas</option><option value="oculto">Ocultas</option></select>
       <button class="btn" id="novo">+ Novo anúncio</button>
     </div>
 
@@ -60,7 +62,7 @@
         <div><label>Valor (R$)</label><input id="valor" inputmode="numeric" placeholder="ex.: 33000"></div>
         <div><label>Cidade-UF</label><input id="cidade" placeholder="ex.: Londrina-PR"></div>
         <div><label>Contato (WhatsApp)</label><input id="contato" inputmode="tel" placeholder="(19) 9 8128-1806"></div>
-        <div><label>Situação</label><select id="status"><option value="ativo">Visível no site</option><option value="oculto">Oculto</option></select></div>
+        <div><label>Situação</label><select id="status"><option value="ativo">À venda (visível)</option><option value="vendido">Vendida (visível, sem contato)</option><option value="oculto">Oculto (fora do site)</option></select></div>
       </div>
       <div><label>Observações</label><textarea id="obs" placeholder="Uma informação por linha"></textarea></div>
       <div>

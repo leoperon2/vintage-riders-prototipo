@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR" data-base="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motos clássicas e antigas à venda — Classificado Vintage Riders</title>
+<meta name="description" content="Catálogo de motos clássicas e antigas: Honda, Yamaha, Suzuki, Harley-Davidson, Triumph e mais. Fotos, preços e contato direto.">
+<meta name="theme-color" content="#14110e">
+
+<meta property="og:title" content="Motos clássicas e antigas à venda — Classificado Vintage Riders">
+<meta property="og:description" content="Catálogo de motos clássicas e antigas: Honda, Yamaha, Suzuki, Harley-Davidson, Triumph e mais. Fotos, preços e contato direto.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/site/hero-1.webp">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script src="js/tema.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/site.css">
+
+</head>
+<body>
+<div id="topo"></div>
+
+<header class="pagina-topo">
+  <div class="wrap">
+    <h1>Motos</h1>
+    <p id="sub">Anúncios à venda e acervo do Classificado Vintage Riders.</p>
+    <form class="busca" id="form-busca" role="search" style="max-width:560px">
+      <input id="q" type="search" placeholder="Busque por marca, modelo ou cidade…" aria-label="Buscar motos" autocomplete="off">
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+    <div class="abas" role="tablist" aria-label="Tipo de anúncio">
+      <button role="tab" data-aba="venda" class="on">À venda</button>
+      <button role="tab" data-aba="acervo">Acervo</button>
+    </div>
+  </div>
+</header>
+<main class="wrap" id="anuncios">
+  <div class="filtros">
+    <div class="chips" id="chips" aria-label="Marcas"></div>
+    <div class="linha-filtros">
+      <select id="f-cidade" aria-label="Estado"><option value="">Todos os estados</option></select>
+      <select id="f-preco" aria-label="Preço máximo">
+        <option value="">Qualquer preço</option>
+        <option value="20000">Até R$ 20 mil</option>
+        <option value="30000">Até R$ 30 mil</option>
+        <option value="50000">Até R$ 50 mil</option>
+        <option value="80000">Até R$ 80 mil</option>
+        <option value="999999999">Acima de R$ 80 mil</option>
+      </select>
+      <select id="f-ano" aria-label="Época">
+        <option value="">Qualquer ano</option>
+        <option value="1979">Até 1979</option>
+        <option value="1989">Anos 80</option>
+        <option value="1999">Anos 90</option>
+        <option value="2000">2000 ou mais</option>
+      </select>
+      <select id="f-ordem" aria-label="Ordenar">
+        <option value="recentes">Mais recentes</option>
+        <option value="menor">Menor preço</option>
+        <option value="maior">Maior preço</option>
+        <option value="antigas">Mais antigas</option>
+      </select>
+    </div>
+  </div>
+  <div class="resumo"><span id="contagem" aria-live="polite">Carregando…</span><button class="chip" id="limpar" hidden>Limpar filtros</button></div>
+  <p class="aviso-acervo" id="aviso-acervo" hidden>O acervo reúne anúncios do nosso site anterior. A disponibilidade de cada moto deve ser confirmada pelo WhatsApp.</p>
+  <div class="grade" id="grade"><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div></div>
+  <div class="mais"><button class="btn sec" id="mais" hidden>Mostrar mais motos</button></div>
+</main>
+
+<div id="rodape"></div>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/motos.js"></script>
+</body>
+</html>
