@@ -16,6 +16,6 @@ window.CONFIG = {
   VIDEO_YOUTUBE: "qI_V5SqGQkQ",
   SITE_URL: "https://leoperon2.github.io/vintage-riders-prototipo/",
   REPO_URL: "https://github.com/leoperon2/vintage-riders-prototipo",
-  // >>> PREENCHER antes de entregar: contato de quem mantém o site (página leosumiu.html)
-  LEO: { NOME: "Léo", WHATSAPP: "55DDDNUMERO", WHATSAPP_TXT: "(DDD) 9 0000-0000", EMAIL: "seu-email@exemplo.com" },
+  // Contato de quem mantém o site (página leosumiu.html e guia-profissional.html)
+  LEO: { NOME: "Léo", WHATSAPP: "5541999116261", WHATSAPP_TXT: "(41) 99911-6261", EMAIL: "leoperon@gmail.com" },
 };
