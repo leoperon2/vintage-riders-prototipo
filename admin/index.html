@@ -44,7 +44,13 @@
     <div class="barra">
       <input id="filtro" type="search" placeholder="Buscar nos meus anúncios…">
       <select id="filtro-status" aria-label="Filtrar por situação" style="max-width:190px"><option value="">Todas as situações</option><option value="ativo">À venda</option><option value="vendido">Vendidas</option><option value="oculto">Ocultas</option></select>
-      <button class="btn" id="novo">+ Novo anúncio</button>
+      <div class="barra-acoes">
+        <button class="btn sec" id="importar" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+          Importar novos do Instagram
+        </button>
+        <button class="btn" id="novo">+ Novo anúncio</button>
+      </div>
     </div>
 
     <form class="form oculto-js" id="form-anuncio">
@@ -81,6 +87,20 @@
     <div class="lista" id="lista"></div>
   </section>
 </main>
+
+
+<dialog class="sw" id="aviso-sw" aria-labelledby="sw-titulo" aria-describedby="sw-texto">
+  <div class="sw-barra"><span class="sw-app">Vintage Riders — Painel</span><button class="sw-x" type="button" data-fechar aria-label="Fechar">✕</button></div>
+  <div class="sw-corpo">
+    <div class="sw-icone" aria-hidden="true">i</div>
+    <div>
+      <h2 id="sw-titulo">Recurso indisponível nesta versão</h2>
+      <p id="sw-texto"><strong>Importar novos do Instagram</strong> é uma funcionalidade que ainda depende do fechamento do contrato.</p>
+      <p class="sw-detalhe">Na versão final, os novos posts do <em>@classificadovintageriders</em> serão trazidos para cá com um clique, sem duplicar os anúncios que já estão cadastrados.</p>
+    </div>
+  </div>
+  <div class="sw-rodape"><button class="btn" type="button" data-fechar autofocus>OK</button></div>
+</dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="../js/config.js"></script>

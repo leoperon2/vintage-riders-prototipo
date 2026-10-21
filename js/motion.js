@@ -15,8 +15,21 @@
   ].join(",");
   const IMGS = ".duas > img";
 
+  // imagens com recorte (clip-path) não "intersectam" quando totalmente recortadas:
+  // por isso observamos o contêiner e liberamos a imagem junto com ele.
+  const imgsDoPai = new WeakMap();
+
   const io = new IntersectionObserver((entradas) => {
-    const vis = entradas.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left);
+    entradas.forEach((e) => {
+      const imgs = imgsDoPai.get(e.target);
+      if (!imgs || !e.isIntersecting) return;
+      imgs.forEach((img) => {
+        img.classList.add("in");
+        setTimeout(() => img.classList.remove("rv-img", "in"), 2200);
+      });
+      io.unobserve(e.target);
+    });
+    const vis = entradas.filter((e) => e.isIntersecting && !imgsDoPai.has(e.target)).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left);
     vis.forEach((e, k) => {
       const el = e.target;
       el.style.transitionDelay = `${Math.min(k, 7) * 70}ms`;
@@ -35,7 +48,10 @@
     });
     $$(IMGS, raizBusca).forEach((el) => {
       if (el.dataset.mv) return;
-      el.dataset.mv = "1"; el.classList.add("rv-img"); io.observe(el);
+      el.dataset.mv = "1"; el.classList.add("rv-img");
+      const pai = el.parentElement;
+      imgsDoPai.set(pai, [...(imgsDoPai.get(pai) || []), el]);
+      io.observe(pai);
     });
   }
   marcar(document);
@@ -99,6 +115,13 @@
       f.style.transform = `translate3d(${dir === 1 ? -x : x - f.scrollWidth / 2}px, 0, 0)`;
     });
   }
+  // rede de segurança: nada visível pode ficar escondido
+  setInterval(() => {
+    $$(".rv:not(.in), .rv-img:not(.in)").forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.width && r.top < innerHeight * 0.92 && r.bottom > 0) el.classList.add("in");
+    });
+  }, 1200);
   const pedir = () => { if (!agendado) { agendado = true; requestAnimationFrame(quadro); } };
   addEventListener("scroll", pedir, { passive: true });
   addEventListener("resize", pedir, { passive: true });

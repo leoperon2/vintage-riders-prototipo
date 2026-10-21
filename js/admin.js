@@ -232,5 +232,12 @@
     await carregar();
   });
 
+  // ---------- aviso estilo software (importação ainda não contratada) ----------
+  const aviso_sw = $("aviso-sw");
+  $("importar").addEventListener("click", () => aviso_sw.showModal());
+  aviso_sw.addEventListener("click", (e) => {
+    if (e.target.closest("[data-fechar]") || e.target === aviso_sw) aviso_sw.close();
+  });
+
   iniciar();
 })();
