@@ -36,8 +36,10 @@
 .hero-foto input { background: rgba(255, 255, 255, 0.95); color: #241d15; border-color: transparent; }
 .hero-foto input::placeholder { color: #6a5f4d; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 8px; }
-.hero-ctas .btn { padding: 0 14px; font-size: 13.5px; }
-@media (min-width: 560px) { .hero-ctas .btn { padding: 0 18px; font-size: 14px; } }
+.hero-ctas .btn { position: relative; min-height: 38px; padding: 0 15px; font-size: 13px; }
+.hero-ctas .btn::after { content: ""; position: absolute; inset: -3px; }   /* visual menor, área de toque continua ~44px */
+@media (min-width: 560px) { .hero-ctas .btn { min-height: 40px; padding: 0 18px; font-size: 13.5px; } }
+
 .btn.vidro { background: #fff; color: #241d15; border: 0; }   /* opaco: contraste garantido sobre qualquer foto */
 .btn.vidro:hover { background: #f1e9d8; }
 .hero-foto .hero-ctas .btn, .pp-hero .hero-ctas .btn { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); }
