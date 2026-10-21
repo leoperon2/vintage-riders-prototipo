@@ -386,3 +386,19 @@ body:has(.pp) .zap-flutuante { display: none; }
 
 /* página da moto já tem o botão principal de WhatsApp: o flutuante só atrapalharia */
 body:has(.detalhe) .zap-flutuante { display: none; }
+
+/* ====== Ajustes da home (contraste do banner e 1ª dobra no celular) ====== */
+.hero-foto::after { background: linear-gradient(0deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.86) 48%, rgba(10, 8, 6, 0.66) 100%); }
+.slide img { filter: brightness(0.78) saturate(1.05); }
+.hero-foto h1, .hero-foto p { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7); }
+@media (max-width: 759px) {
+  .diferenciais { display: none; }                    /* selos poluíam a 1ª tela; os serviços já estão mais abaixo */
+  .hero-foto { min-height: 380px; }
+  .hero-ctas a:nth-child(3) { display: none; }       /* "Tenho dúvidas" fica em Sobre e no rodapé */
+  .hero-foto .wrap { padding: 24px 0 18px; }
+  .hero-foto h1 { font-size: clamp(26px, 7.4vw, 32px); }
+  .hero-foto p { font-size: 14.5px; margin-bottom: 10px; }
+  .secao.novidades { padding: 18px 0 20px; }
+  .secao.novidades .sec-topo { margin-bottom: 10px; }
+  .secao.novidades .sec-topo p { display: none; }
+}
