@@ -13,12 +13,12 @@
 <meta property="og:image" content="img/site/hero-1.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="js/tema.js?v=8"></script>
+<script src="js/tema.js?v=9"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=8">
-<link rel="stylesheet" href="css/site.css?v=8">
+<link rel="stylesheet" href="css/estilo.css?v=9">
+<link rel="stylesheet" href="css/site.css?v=9">
 
 </head>
 <body>
@@ -53,9 +53,9 @@
 </main>
 
 <div id="rodape"></div>
-<script src="js/config.js?v=8"></script>
-<script src="js/api.js?v=8"></script>
-<script src="js/layout.js?v=8"></script>
+<script src="js/config.js?v=9"></script>
+<script src="js/api.js?v=9"></script>
+<script src="js/layout.js?v=9"></script>
 <script>
 (function(){var f=document.getElementById('form-contato');var g=function(i){return document.getElementById(i).value.trim()};
 function texto(){var l=['Olá! Meu nome é '+g('c-nome')+'.'];var loc=[g('c-cidade'),g('c-uf')].filter(Boolean).join('/');
@@ -64,6 +64,6 @@ f.addEventListener('submit',function(e){e.preventDefault();window.open('https://
 document.getElementById('c-email').addEventListener('click',function(){if(!f.reportValidity())return;
 location.href='mailto:'+CONFIG.EMAIL+'?subject='+encodeURIComponent('Contato pelo site')+'&body='+encodeURIComponent(texto());});})();
 </script>
-<script src="js/motion.js?v=8"></script>
+<script src="js/motion.js?v=9"></script>
 </body>
 </html>

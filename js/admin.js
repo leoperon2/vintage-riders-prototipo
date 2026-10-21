@@ -26,7 +26,7 @@
     if (data.session) await entrar(); else mostrarLogin();
   }
   function mostrarLogin() {
-    mostrar("form-login", true); mostrar("painel", false); mostrar("sair", false);
+    mostrar("form-login", true); mostrar("painel", false); mostrar("sair", false); mostrar("link-suporte", false);
   }
   async function entrar() {
     const { data, error } = await db.from("admins").select("email").limit(1);
@@ -38,7 +38,7 @@
       e.classList.remove("oculto-js");
       return;
     }
-    mostrar("form-login", false); mostrar("painel", true); mostrar("sair", true);
+    mostrar("form-login", false); mostrar("painel", true); mostrar("sair", true); mostrar("link-suporte", true);
     await carregar();
   }
   $("form-login").addEventListener("submit", async (ev) => {

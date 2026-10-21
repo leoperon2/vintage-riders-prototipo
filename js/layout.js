@@ -75,7 +75,7 @@
       </div>
       <div class="wrap rodape-fim">
         <span>Os veículos são de responsabilidade do anunciante. O Vintage Riders reserva-se ao direito de fazer a ligação entre vendedor e comprador.</span>
-        <span>Vintage Riders · CNPJ ${C.CNPJ} · <a href="${B}admin/">Área do anunciante</a> · <a href="${B}leosumiu.html">Suporte do site</a></span>
+        <span>Vintage Riders · CNPJ ${C.CNPJ} · <a href="${B}admin/">Área do anunciante</a></span>
         <span class="proto">Protótipo de demonstração. Anúncios e fotos pertencem aos respectivos anunciantes.</span>
       </div>`;
   }
