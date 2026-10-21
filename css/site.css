@@ -389,12 +389,9 @@ body:has(.pp) .zap-flutuante { display: none; }
 body:has(.detalhe) .zap-flutuante { display: none; }
 
 /* ====== Ajustes da home (contraste do banner e 1ª dobra no celular) ====== */
-.hero-foto::after { background: linear-gradient(0deg, rgba(10, 8, 6, 0.9) 0%, rgba(10, 8, 6, 0.7) 45%, rgba(10, 8, 6, 0.48) 100%), linear-gradient(90deg, rgba(10, 8, 6, 0.5) 0%, rgba(10, 8, 6, 0) 75%); }
-.slide img { filter: brightness(0.9) saturate(1.05); }
 .hero-foto h1, .hero-foto p { text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 3px rgba(0, 0, 0, 0.6); }
 @media (max-width: 759px) {
   .diferenciais { display: none; }                    /* selos poluíam a 1ª tela; os serviços já estão mais abaixo */
-  .hero-foto { min-height: 380px; }
   .hero-foto .wrap { padding: 24px 0 18px; }
   .hero-foto h1 { font-size: clamp(26px, 7.4vw, 32px); }
   .hero-foto p { font-size: 14.5px; margin-bottom: 10px; }
@@ -405,3 +402,20 @@ body:has(.detalhe) .zap-flutuante { display: none; }
 
 /* o contêiner das fotos (com will-change) criava uma camada acima do véu escuro: garante a ordem fotos < véu < texto */
 .hero-foto .slides { z-index: -2; }
+
+/* ====== Banner: véu escuro só onde está o texto; a foto fica livre no resto ======
+   Valores calibrados medindo o contraste no pior ponto de cada banner (>= 5:1 no trecho laranja,
+   >= 7:1 no título e no subtítulo). Se trocar as fotos, rode a medição de novo. */
+.slide img { filter: none; }
+@media (max-width: 759px) {
+  .hero-foto { min-height: 450px; }
+  .hero-foto::after { background: linear-gradient(180deg, rgba(10, 8, 6, 0.05) 0%, rgba(10, 8, 6, 0.15) 22%, rgba(10, 8, 6, 0.62) 34%, rgba(10, 8, 6, 0.78) 50%, rgba(10, 8, 6, 0.9) 100%); }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  .hero-foto { min-height: 500px; }
+  .hero-foto::after { background: linear-gradient(0deg, rgba(10, 8, 6, 0.9) 0%, rgba(10, 8, 6, 0.78) 45%, rgba(10, 8, 6, 0.6) 100%); }
+}
+@media (min-width: 1100px) {
+  .hero-foto { min-height: 620px; }
+  .hero-foto::after { background: linear-gradient(90deg, rgba(10, 8, 6, 0.8) 0%, rgba(10, 8, 6, 0.62) 55%, rgba(10, 8, 6, 0.38) 66%, rgba(10, 8, 6, 0.12) 78%, rgba(10, 8, 6, 0) 90%), linear-gradient(0deg, rgba(10, 8, 6, 0.24) 0%, rgba(10, 8, 6, 0) 45%); }
+}
